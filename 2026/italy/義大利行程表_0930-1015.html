@@ -184,11 +184,38 @@ footer .star{font-family:"Fraunces",serif;color:var(--gold);font-size:22px;}
 footer p{font-family:"Fraunces",serif;font-style:italic;color:var(--ink-soft);margin:14px 0 0;}
 footer .big{font-family:"Fraunces",serif;font-weight:600;font-style:normal;color:var(--rust);font-size:30px;letter-spacing:.02em;margin-top:6px;}
 
+/* ---------- FLIGHTS ---------- */
+.fmeta{display:flex;flex-wrap:wrap;gap:9px 22px;margin:0 2px 20px;font-family:"Fraunces",serif;font-size:14px;color:var(--ink-soft);}
+.fmeta b{color:var(--ink);font-weight:600;}
+.flights{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.flight{border:1px solid var(--line);border-radius:4px;background:rgba(255,251,242,.55);
+  box-shadow:0 14px 36px -28px rgba(43,34,26,.5);overflow:hidden;}
+.flight .fhead{display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:13px 20px;background:var(--ink);color:var(--paper);}
+.flight .fhead .dir{font-family:"Fraunces",serif;font-weight:600;font-size:17px;}
+.flight .fhead .rt{font-family:"Fraunces",serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;opacity:.78;white-space:nowrap;}
+.flight .fbody{padding:18px 20px;}
+.fseg{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;}
+.fseg .ep{display:flex;flex-direction:column;min-width:0;}
+.fseg .ep.to{text-align:right;align-items:flex-end;}
+.fseg .ep .tm{font-family:"Fraunces",serif;font-weight:600;font-size:25px;line-height:1;color:var(--ink);}
+.fseg .ep .ap{font-size:13px;color:var(--ink-soft);margin-top:4px;line-height:1.35;}
+.fseg .ep .dt{font-family:"Fraunces",serif;font-size:11px;letter-spacing:.06em;color:var(--rust-deep);margin-top:3px;}
+.fseg .mid{display:flex;flex-direction:column;align-items:center;min-width:78px;}
+.fseg .mid .fno{font-family:"Fraunces",serif;font-weight:600;font-size:12px;color:var(--teal);letter-spacing:.05em;}
+.fseg .mid .pl{width:100%;height:0;border-top:1.5px solid var(--line);margin:7px 0 0;position:relative;}
+.fseg .mid .pl::after{content:"✈";position:absolute;right:-3px;top:-9px;color:var(--rust);font-size:12px;}
+.ftrans{font-size:13px;color:var(--ink-soft);font-style:italic;text-align:center;padding:9px 6px;margin:11px 0;border-top:1px dashed var(--line);border-bottom:1px dashed var(--line);}
+
 @media(max-width:760px){
   body{font-size:17px;}
+  .flights{grid-template-columns:1fr;}
+  .fseg{gap:8px;}
+  .fseg .mid{min-width:62px;}
+  .fseg .ep .ap{font-size:12px;}
   .day{grid-template-columns:1fr;gap:18px;padding:38px 0;}
   .day:nth-child(even) .day-map{order:0;}
   .day-map{position:static;}
+  .day-map .cap{text-align:left;}
   #overview{height:420px;}
   .section-head .en{display:none;}
   thead th:nth-child(3),td.summary{display:none;}
@@ -204,8 +231,8 @@ footer .big{font-family:"Fraunces",serif;font-weight:600;font-style:normal;color
   .section-head{margin:22px 0 12px;}
   .section-head .en{display:none;}
   thead th{background:#222!important;color:#fff!important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
-  .callout,.card,tr{break-inside:avoid;}
-  .tablewrap,.card,#overview{box-shadow:none;}
+  .callout,.card,.flight,tr{break-inside:avoid;}
+  .tablewrap,.card,.flight,#overview{box-shadow:none;}
 }
 </style>
 </head>
@@ -219,7 +246,7 @@ footer .big{font-family:"Fraunces",serif;font-weight:600;font-style:normal;color
     <div class="meta">
       <span><i></i><b>2026 / 9.30 – 10.15</b></span>
       <span><i></i>Etihad · 米蘭進 · 羅馬出</span>
-      <span><i></i>夜貓子 · 早出晚歸</span>
+      <span><i></i>rocking 的旅程</span>
     </div>
     <div class="rule"><span class="star">✦</span></div>
   </div>
@@ -240,6 +267,53 @@ footer .big{font-family:"Fraunces",serif;font-weight:600;font-style:normal;color
   <section>
     <div class="section-head">
       <span class="no">II</span>
+      <h2>班機資訊</h2>
+      <span class="en">Flights</span>
+    </div>
+    <p class="fmeta">
+      <span>✈&nbsp; <b>阿提哈德航空 Etihad</b> · 經濟艙</span>
+      <span>行李：手提 <b>7kg</b> · 託運 <b>25kg</b>（每段相同）</span>
+      <span>建議起飛前 <b>3 小時</b>到機場</span>
+    </p>
+    <div class="flights">
+      <div class="flight">
+        <div class="fhead"><span class="dir">去程 · 台北 → 米蘭</span><span class="rt">於阿布達比轉機</span></div>
+        <div class="fbody">
+          <div class="fseg">
+            <div class="ep"><span class="tm">19:40</span><span class="ap">台北 TPE · 桃園 T2</span><span class="dt">9/29</span></div>
+            <div class="mid"><span class="fno">EY899</span><span class="pl"></span></div>
+            <div class="ep to"><span class="tm">00:55</span><span class="ap">阿布達比 AUH</span><span class="dt">9/30</span></div>
+          </div>
+          <div class="ftrans">阿布達比轉機約 1 小時 20 分 · 行李直掛</div>
+          <div class="fseg">
+            <div class="ep"><span class="tm">02:15</span><span class="ap">阿布達比 AUH</span><span class="dt">9/30</span></div>
+            <div class="mid"><span class="fno">EY081</span><span class="pl"></span></div>
+            <div class="ep to"><span class="tm">06:45</span><span class="ap">米蘭 MXP · 馬爾彭薩 T1</span><span class="dt">9/30</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="flight">
+        <div class="fhead"><span class="dir">回程 · 羅馬 → 台北</span><span class="rt">於阿布達比轉機</span></div>
+        <div class="fbody">
+          <div class="fseg">
+            <div class="ep"><span class="tm">23:00</span><span class="ap">羅馬 FCO · 菲烏米奇諾 T3</span><span class="dt">10/15</span></div>
+            <div class="mid"><span class="fno">EY084</span><span class="pl"></span></div>
+            <div class="ep to"><span class="tm">07:05</span><span class="ap">阿布達比 AUH</span><span class="dt">10/16</span></div>
+          </div>
+          <div class="ftrans">阿布達比轉機約 14 小時 15 分（較長，可安排機場休息或過境旅遊）· 行李直掛</div>
+          <div class="fseg">
+            <div class="ep"><span class="tm">21:20</span><span class="ap">阿布達比 AUH</span><span class="dt">10/16</span></div>
+            <div class="mid"><span class="fno">EY898</span><span class="pl"></span></div>
+            <div class="ep to"><span class="tm">10:00</span><span class="ap">台北 TPE · 桃園 T2</span><span class="dt">10/17</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <span class="no">III</span>
       <h2>行程總表</h2>
       <span class="en">At a Glance</span>
     </div>
@@ -253,7 +327,7 @@ footer .big{font-family:"Fraunces",serif;font-weight:600;font-style:normal;color
 
   <section>
     <div class="section-head">
-      <span class="no">III</span>
+      <span class="no">IV</span>
       <h2>逐日行程</h2>
       <span class="en">Day by Day</span>
     </div>
@@ -262,7 +336,7 @@ footer .big{font-family:"Fraunces",serif;font-weight:600;font-style:normal;color
 
   <section>
     <div class="section-head">
-      <span class="no">IV</span>
+      <span class="no">V</span>
       <h2>訂票與提醒</h2>
       <span class="en">Before You Go</span>
     </div>
@@ -314,239 +388,239 @@ const COL={milan:'#B0492B',dolo:'#2F6B4F',venice:'#256C86',florence:'#C2882B',na
 
 // Overview nodes (city level)
 const NODES=[
-  {n:1, name:'米蘭 Milano',     coord:[45.4642,9.1900],  c:COL.milan,   info:'9/30–10/1 · 大教堂登頂、艾曼紐迴廊、斯福爾札古堡'},
-  {n:'·',name:'科莫湖 Como',    coord:[45.9869,9.2616],  c:COL.milan,   info:'10/1 一日 · 瓦倫納–貝拉吉歐–梅納焦渡輪', spur:[45.4642,9.1900]},
-  {n:2, name:'多洛米堤 Dolomiti',coord:[46.4983,11.3548], c:COL.dolo,    info:'10/2–10/4 跟團 · 富內斯、塞切達、布萊耶斯湖'},
-  {n:3, name:'威尼斯 Venezia',  coord:[45.4380,12.3358], c:COL.venice,  info:'10/4–10/7 · 本島精華＋布拉諾跳島，宿朱代卡'},
-  {n:4, name:'波隆納 Bologna',  coord:[44.4949,11.3426], c:COL.florence,info:'10/7 半天 · 大廣場、拱廊、肉醬寬麵'},
-  {n:5, name:'佛羅倫斯 Firenze',coord:[43.7696,11.2558], c:COL.florence,info:'10/7–10/10 · 圓頂、烏菲茲、大衛、米開朗基羅廣場'},
-  {n:6, name:'拿波里 Napoli',   coord:[40.8518,14.2681], c:COL.naples,  info:'10/10–10/11 · 舊城、蒙紗的基督、海濱披薩'},
-  {n:7, name:'龐貝 Pompeii',    coord:[40.7497,14.4869], c:COL.naples,  info:'10/11 · 古城遺址半日導覽'},
-  {n:8, name:'羅馬 Roma',       coord:[41.9028,12.4964], c:COL.rome,    info:'10/11–10/15 · 梵蒂岡、古羅馬、歷史中心'},
+  {n:1, name:'米蘭（Milan）',     coord:[45.4642,9.1900],  c:COL.milan,   info:'9/30–10/1 · 大教堂登頂、艾曼紐迴廊、斯福爾札古堡'},
+  {n:'·',name:'科莫湖（Lake Como）',    coord:[45.9869,9.2616],  c:COL.milan,   info:'10/1 一日 · 瓦倫納–貝拉吉歐–梅納焦渡輪', spur:[45.4642,9.1900]},
+  {n:2, name:'多洛米堤（Dolomites）',coord:[46.4983,11.3548], c:COL.dolo,    info:'10/2–10/4 跟團 · 富內斯、塞切達、布萊耶斯湖'},
+  {n:3, name:'威尼斯（Venice）',  coord:[45.4380,12.3358], c:COL.venice,  info:'10/4–10/7 · 本島精華＋布拉諾跳島，宿朱代卡'},
+  {n:4, name:'波隆納（Bologna）',  coord:[44.4949,11.3426], c:COL.florence,info:'10/7 半天 · 大廣場、拱廊、肉醬寬麵'},
+  {n:5, name:'佛羅倫斯（Florence）',coord:[43.7696,11.2558], c:COL.florence,info:'10/7–10/10 · 圓頂、烏菲茲、大衛、米開朗基羅廣場'},
+  {n:6, name:'拿波里（Naples）',   coord:[40.8518,14.2681], c:COL.naples,  info:'10/10–10/11 · 舊城、蒙紗的基督、海濱披薩'},
+  {n:7, name:'龐貝（Pompeii）',    coord:[40.7497,14.4869], c:COL.naples,  info:'10/11 · 古城遺址半日導覽'},
+  {n:8, name:'羅馬（Rome）',       coord:[41.9028,12.4964], c:COL.rome,    info:'10/11–10/15 · 梵蒂岡、古羅馬、歷史中心'},
 ];
 // main solid route (north→south)
 const ROUTE=[[45.4642,9.1900],[46.4983,11.3548],[45.4380,12.3358],[44.4949,11.3426],[43.7696,11.2558],[40.8518,14.2681],[40.7497,14.4869],[41.9028,12.4964]];
 
 const DAYS=[
  {date:'9/30',dow:'週三',stay:'米蘭',color:COL.milan,
-  title:'抵米蘭 · 市中心徒步首發',
+  title:'抵米蘭（Milan）· 市中心徒步首發',
   center:[45.466,9.186],zoom:14,
-  markers:[['米蘭大教堂 Duomo',[45.4641,9.1919]],['艾曼紐迴廊',[45.4659,9.1899]],['斯福爾札古堡',[45.4706,9.1795]],['森皮奧內公園',[45.4727,9.1740]]],
-  cap:'米蘭市中心 · 一個下午走得完',
+  markers:[['米蘭大教堂（Duomo di Milano）',[45.4641,9.1919]],['艾曼紐迴廊（Galleria Vittorio Emanuele II）',[45.4659,9.1899]],['斯福爾札古堡（Castello Sforzesco）',[45.4706,9.1795]],['森皮奧內公園（Parco Sempione）',[45.4727,9.1740]]],
+  cap:'米蘭（Milan）市中心 · 一個下午走得完',
   detail:`<ul>
-   <li><b>06:45</b> 抵馬爾彭薩機場（T1），提行李、過海關。</li>
-   <li>搭 <b>馬爾彭薩快線</b> 約 50 分進市區（中央車站或 Cadorna）。</li>
+   <li><b>06:45</b> 抵馬爾彭薩機場（Malpensa, T1），提行李、過海關。</li>
+   <li>搭 <b>馬爾彭薩快線（Malpensa Express）</b> 約 50 分進市區（中央車站 Milano Centrale 或 Cadorna）。</li>
    <li>旅館寄行李（一般 14:00–15:00 才能 check-in）。</li>
-   <li><b>下午徒步</b>：大教堂＋<b>登頂露台</b>（先線上訂含 rooftop 票）→ 艾曼紐二世迴廊 → 步行 15 分到斯福爾札古堡＋森皮奧內公園傍晚散步。</li>
+   <li><b>下午徒步</b>：大教堂（Duomo）＋<b>登頂露台</b>（先線上訂含 rooftop 票）→ 艾曼紐二世迴廊（Galleria Vittorio Emanuele II）→ 步行 15 分到斯福爾札古堡（Castello Sforzesco）＋森皮奧內公園（Parco Sempione）傍晚散步。</li>
    <li>晚餐市中心，早睡補眠（紅眼航班後第一天）。</li>
   </ul>
-  <div class="callout tip"><span class="lab">提醒</span>想看《最後的晚餐》必須提前數週上官網搶票；本行程未排，要看就現在訂。</div>`},
+  <div class="callout tip"><span class="lab">提醒</span>想看《最後的晚餐》（Cenacolo Vinciano）必須提前數週上官網搶票；本行程未排，要看就現在訂。</div>`},
 
  {date:'10/1',dow:'週四',stay:'米蘭',color:COL.milan,
-  title:'科莫湖一日 · 渡輪三角航線',
+  title:'科莫湖（Lake Como）一日 · 渡輪三角航線',
   center:[45.99,9.255],zoom:11,
-  markers:[['瓦倫納 Varenna',[46.0095,9.2840]],['貝拉吉歐 Bellagio',[45.9869,9.2616]],['梅納焦 Menaggio',[46.0220,9.2390]]],
-  cap:'科莫湖 · 重點放貝拉吉歐',
+  markers:[['瓦倫納（Varenna）',[46.0095,9.2840]],['貝拉吉歐（Bellagio）',[45.9869,9.2616]],['梅納焦（Menaggio）',[46.0220,9.2390]]],
+  cap:'科莫湖（Lake Como）· 重點放貝拉吉歐（Bellagio）',
   detail:`<ul>
-   <li>早上中央車站搭火車到 <b>瓦倫納（Varenna）</b>，約 1 小時。</li>
-   <li>渡輪玩 <b>瓦倫納–貝拉吉歐–梅納焦</b> 三角航線，重點放 <b>貝拉吉歐</b>。</li>
+   <li>早上中央車站（Milano Centrale）搭火車到 <b>瓦倫納（Varenna）</b>，約 1 小時。</li>
+   <li>渡輪玩 <b>瓦倫納（Varenna）–貝拉吉歐（Bellagio）–梅納焦（Menaggio）</b> 三角航線，重點放 <b>貝拉吉歐（Bellagio）</b>。</li>
    <li>傍晚回米蘭。米蘭住兩晚（9/30、10/1）。</li>
    <li>10/2 跟團車來市區酒店接。</li>
   </ul>`},
 
  {date:'10/2',dow:'週五',stay:'波札諾（跟團）',color:COL.dolo,
-  title:'多洛米堤 D1 · 富內斯山谷',
+  title:'多洛米堤（Dolomites）D1 · 富內斯山谷（Val di Funes）',
   center:[46.57,11.55],zoom:9,
-  markers:[['波札諾 Bolzano',[46.4983,11.3548]],['富內斯山谷',[46.6406,11.7016]],['洋蔥頂教堂 Santa Maddalena',[46.6406,11.7016]]],
-  cap:'米蘭 → 波札諾 → 富內斯',
-  detail:`<div class="callout tip"><span class="lab">跟團</span>領君遊「多洛米蒂夢幻純享 3 日遊」€600/人；10/2 米蘭出發、10/4 威尼斯結束（已成團、可異地結束）。情侶同房免單房差。</div>
+  markers:[['波札諾（Bolzano）',[46.4983,11.3548]],['富內斯山谷（Val di Funes）',[46.6406,11.7016]],['洋蔥頂教堂（Santa Maddalena）',[46.6406,11.7016]]],
+  cap:'米蘭（Milan）→ 波札諾（Bolzano）→ 富內斯（Val di Funes）',
+  detail:`<div class="callout tip"><span class="lab">跟團</span>領君遊「多洛米蒂夢幻純享 3 日遊」€600/人；10/2 米蘭（Milan）出發、10/4 威尼斯（Venice）結束（已成團、可異地結束）。情侶同房免單房差。</div>
   <ul>
-   <li><b>D1</b>：米蘭接 → 波札諾 → 富內斯山谷（Val di Funes）→ 洋蔥頂教堂（Santa Maddalena）→ 宿波札諾。</li>
+   <li><b>D1</b>：米蘭（Milan）接 → 波札諾（Bolzano）→ 富內斯山谷（Val di Funes）→ 洋蔥頂教堂（Santa Maddalena）→ 宿波札諾（Bolzano）。</li>
   </ul>
-  <div class="callout warn"><span class="lab">出發前必確認</span>纜車狀態：塞切達與西烏西高原纜車曾公告維護（預計 2026/6 中重開），這兩條是 D2 精華，下訂前務必書面跟客服確認 10/2–10/4 正常營運。</div>`},
+  <div class="callout warn"><span class="lab">出發前必確認</span>纜車狀態：塞切達（Seceda）與西烏西高原（Alpe di Siusi）纜車曾公告維護（預計 2026/6 中重開），這兩條是 D2 精華，下訂前務必書面跟客服確認 10/2–10/4 正常營運。</div>`},
 
  {date:'10/3',dow:'週六',stay:'波札諾（跟團）',color:COL.dolo,
-  title:'多洛米堤 D2 · 塞切達刀鋒山',
+  title:'多洛米堤 D2 · 塞切達（Seceda）刀鋒山',
   center:[46.57,11.66],zoom:11,
-  markers:[['塞切達 Seceda',[46.6086,11.7256]],['奧蒂塞伊 Ortisei',[46.5747,11.6722]],['西烏西高原 Alpe di Siusi',[46.5400,11.6200]]],
-  cap:'塞切達 · 西烏西高山草原',
+  markers:[['塞切達（Seceda）',[46.6086,11.7256]],['奧蒂塞伊（Ortisei）',[46.5747,11.6722]],['西烏西高原（Alpe di Siusi）',[46.5400,11.6200]]],
+  cap:'塞切達（Seceda）· 西烏西高山草原（Alpe di Siusi）',
   detail:`<ul>
-   <li><b>D2</b>：波札諾 → 刀鋒山／塞切達（Seceda）→ 奧蒂塞伊小鎮 → 西烏西高山草原（Alpe di Siusi）→ 宿波札諾。</li>
+   <li><b>D2</b>：波札諾（Bolzano）→ 刀鋒山／塞切達（Seceda）→ 奧蒂塞伊小鎮（Ortisei）→ 西烏西高山草原（Alpe di Siusi）→ 宿波札諾。</li>
   </ul>
-  <div class="callout warn"><span class="lab">自費（兩人預估）</span>Seceda 纜車 €52/人、Alpe di Siusi 纜車 €35–39/人、Braies 划船 €15–20/人、奧茨冰人博物館 €26/人。</div>
+  <div class="callout warn"><span class="lab">自費（兩人預估）</span>塞切達（Seceda）纜車 €52/人、西烏西（Alpe di Siusi）纜車 €35–39/人、布萊耶斯湖（Braies）划船 €15–20/人、奧茨冰人博物館（Ötzi）€26/人。</div>
   <div class="callout tip"><span class="lab">提醒</span>落葉松金黃約 10 月中下旬才到高峰，10 月初多半綠中帶黃。司導工時 07:00–21:00、每日至多 10 小時；遲到只等 5 分鐘。行李會跟著上山、最後落在威尼斯，米蘭別買太多。</div>`},
 
  {date:'10/4',dow:'週日',stay:'朱代卡',color:COL.dolo,
-  title:'多洛米堤 D3 → 傍晚抵威尼斯',
+  title:'多洛米堤 D3 → 傍晚抵威尼斯（Venice）',
   center:[46.2,11.9],zoom:8,
-  markers:[['布萊耶斯湖 Lago di Braies',[46.6947,12.0852]],['卡雷扎湖 Lago di Carezza',[46.4090,11.5770]],['威尼斯特龍凱托',[45.4400,12.3000]],['朱代卡 Giudecca',[45.4257,12.3210]]],
-  cap:'布萊耶斯湖 → 威尼斯',
+  markers:[['布萊耶斯湖（Lago di Braies）',[46.6947,12.0852]],['卡雷扎湖（Lago di Carezza）',[46.4090,11.5770]],['威尼斯特龍凱托（Venezia Tronchetto）',[45.4400,12.3000]],['朱代卡（Giudecca）',[45.4257,12.3210]]],
+  cap:'布萊耶斯湖（Lago di Braies）→ 威尼斯（Venice）',
   detail:`<ul>
-   <li><b>D3</b>：波札諾 → 布萊耶斯湖（Lago di Braies）→ 卡雷扎湖（Lago di Carezza）→ 拉特馬峰 → 傍晚抵威尼斯特龍凱托（Tronchetto）。</li>
-   <li>特龍凱托下車，<b>先買 ACTV 多日水上巴士券</b>（3 日券約 €40，住朱代卡又要跳島最省）。</li>
-   <li>搭 <b>2 號線</b> 到朱代卡旅館 check-in。</li>
-   <li>傍晚走朱代卡北岸水岸步道（Fondamenta），正對聖馬可、安康聖母教堂天際線夜景，免費零體力。晚餐在朱代卡。</li>
+   <li><b>D3</b>：波札諾（Bolzano）→ 布萊耶斯湖（Lago di Braies）→ 卡雷扎湖（Lago di Carezza）→ 拉特馬峰（Latemar）→ 傍晚抵威尼斯特龍凱托（Venezia Tronchetto）。</li>
+   <li>特龍凱托（Tronchetto）下車，<b>先買 ACTV 多日水上巴士券（vaporetto pass）</b>（3 日券約 €40，住朱代卡又要跳島最省）。</li>
+   <li>搭 <b>2 號線</b> 到朱代卡（Giudecca）旅館 check-in。</li>
+   <li>傍晚走朱代卡北岸水岸步道（Fondamenta），正對聖馬可（San Marco）、安康聖母教堂（Santa Maria della Salute）天際線夜景，免費零體力。晚餐在朱代卡。</li>
   </ul>`},
 
  {date:'10/5',dow:'週一',stay:'朱代卡',color:COL.venice,
-  title:'威尼斯本島精華',
+  title:'威尼斯（Venice）本島精華',
   center:[45.434,12.337],zoom:14,
-  markers:[['聖馬可廣場',[45.4341,12.3388]],['里阿爾托橋',[45.4380,12.3358]],['T Fondaco 頂樓',[45.4382,12.3340]],['學院橋 Accademia',[45.4317,12.3286]],['安康聖母教堂',[45.4307,12.3346]]],
-  cap:'聖馬可 → 里阿爾托 → 多爾索杜羅日落',
-  detail:`<div class="callout tip"><span class="lab">週一</span>聖馬可大教堂與總督宮正常開放。</div>
+  markers:[['聖馬可廣場（Piazza San Marco）',[45.4341,12.3388]],['里阿爾托橋（Rialto Bridge）',[45.4380,12.3358]],['T 德國商館頂樓（T Fondaco dei Tedeschi）',[45.4382,12.3340]],['學院橋（Ponte dell’Accademia）',[45.4317,12.3286]],['安康聖母教堂（Santa Maria della Salute）',[45.4307,12.3346]]],
+  cap:'聖馬可（San Marco）→ 里阿爾托（Rialto）→ 多爾索杜羅（Dorsoduro）日落',
+  detail:`<div class="callout tip"><span class="lab">週一</span>聖馬可大教堂（Basilica di San Marco）與總督宮（Palazzo Ducale）正常開放。</div>
   <ul>
-   <li><b>上午 聖馬可廣場</b>：聖馬可大教堂（線上訂時段，建議加購黃金祭壇＋露台）、總督宮（可加密道導覽 Secret Itineraries）。</li>
-   <li>里阿爾托橋＋大運河，順遊 <b>T Fondaco dei Tedeschi 免費頂樓觀景台</b>（需線上預約，大運河最佳免費俯瞰點）。</li>
+   <li><b>上午 聖馬可廣場（Piazza San Marco）</b>：聖馬可大教堂（Basilica di San Marco）（線上訂時段，建議加購黃金祭壇 Pala d’Oro＋露台）、總督宮（Palazzo Ducale）（可加密道導覽 Secret Itineraries）。</li>
+   <li>里阿爾托橋（Rialto Bridge）＋大運河（Grand Canal），順遊 <b>T 德國商館頂樓（T Fondaco dei Tedeschi）免費觀景台</b>（需線上預約，大運河最佳免費俯瞰點）。</li>
    <li>鑽進聖保羅區（San Polo）老巷迷路。</li>
-   <li><b>貢多拉</b>：日間 30 分約 €90、19:00 後約 €110，最多 6 人共乘；建議在多爾索杜羅或卡納雷吉歐的安靜小運河搭。</li>
-   <li><b>傍晚日落</b>：學院橋／多爾索杜羅 → 海關角／扎泰雷看日落，順遊安康聖母教堂（免費）。收尾在扎泰雷搭 2 號線回朱代卡。</li>
+   <li><b>貢多拉（Gondola）</b>：日間 30 分約 €90、19:00 後約 €110，最多 6 人共乘；建議在多爾索杜羅（Dorsoduro）或卡納雷吉歐（Cannaregio）的安靜小運河搭。</li>
+   <li><b>傍晚日落</b>：學院橋（Ponte dell’Accademia）／多爾索杜羅（Dorsoduro）→ 海關角（Punta della Dogana）／扎泰雷（Zattere）看日落，順遊安康聖母教堂（Santa Maria della Salute，免費）。收尾在扎泰雷（Zattere）搭 2 號線回朱代卡。</li>
   </ul>`},
 
  {date:'10/6',dow:'週二',stay:'朱代卡',color:COL.venice,
-  title:'威尼斯跳島 · 布拉諾優先',
+  title:'威尼斯跳島 · 布拉諾（Burano）優先',
   center:[45.47,12.39],zoom:12,
-  markers:[['布拉諾 Burano',[45.4853,12.4167]],['托爾切洛 Torcello',[45.4978,12.4180]],['穆拉諾 Murano',[45.4590,12.3540]],['新堤岸 Fondamente Nove',[45.4419,12.3460]]],
-  cap:'布拉諾 → 托爾切洛 → 穆拉諾',
-  detail:`<div class="callout tip"><span class="lab">重點</span>早上先攻布拉諾，避開 11:00–15:00 人潮高峰。<b>務必 7:45 前出門。</b></div>
+  markers:[['布拉諾（Burano）',[45.4853,12.4167]],['托爾切洛（Torcello）',[45.4978,12.4180]],['穆拉諾（Murano）',[45.4590,12.3540]],['新堤岸（Fondamente Nove）',[45.4419,12.3460]]],
+  cap:'布拉諾（Burano）→ 托爾切洛（Torcello）→ 穆拉諾（Murano）',
+  detail:`<div class="callout tip"><span class="lab">重點</span>早上先攻布拉諾（Burano），避開 11:00–15:00 人潮高峰。<b>務必 7:45 前出門。</b></div>
   <div class="miniroute">
-   <div class="r"><div class="t">7:45</div><div class="c">朱代卡 → 新堤岸（4.1 號，約 35 分）→ 布拉諾（12 號，約 45 分，過穆拉諾不下）</div></div>
-   <div class="r"><div class="t">9:30</div><div class="c"><b>布拉諾</b>：彩色屋、斜塔、蕾絲，約 1.5h</div></div>
+   <div class="r"><div class="t">7:45</div><div class="c">朱代卡（Giudecca）→ 新堤岸（Fondamente Nove）（4.1 號，約 35 分）→ 布拉諾（Burano）（12 號，約 45 分，過穆拉諾不下）</div></div>
+   <div class="r"><div class="t">9:30</div><div class="c"><b>布拉諾（Burano）</b>：彩色屋、斜塔、蕾絲，約 1.5h</div></div>
    <div class="r"><div class="t">11:30</div><div class="c">布拉諾午餐：海鮮、墨魚燉飯（risotto de gò）</div></div>
-   <div class="r"><div class="t">午後</div><div class="c">托爾切洛拜占庭馬賽克大教堂＋鐘樓（9 號，5 分）→ 穆拉諾玻璃島</div></div>
-   <div class="r"><div class="t">16:30</div><div class="c">穆拉諾 → 朱代卡（4.1／4.2，約 45 分），天黑前到家</div></div>
+   <div class="r"><div class="t">午後</div><div class="c">托爾切洛（Torcello）拜占庭馬賽克大教堂＋鐘樓（9 號，5 分）→ 穆拉諾（Murano）玻璃島</div></div>
+   <div class="r"><div class="t">16:30</div><div class="c">穆拉諾（Murano）→ 朱代卡（4.1／4.2，約 45 分），天黑前到家</div></div>
   </div>
   <div class="callout warn"><span class="lab">提醒</span>純搭船約 1h15–1h30，全程靠 ACTV 多日券今天最划算；跳島線扒手較多，顧好隨身物。</div>`},
 
  {date:'10/7',dow:'週三',stay:'佛羅倫斯',color:COL.florence,
-  title:'威尼斯 → 波隆納半天 → 佛羅倫斯',
+  title:'威尼斯（Venice）→ 波隆納（Bologna）半天 → 佛羅倫斯（Florence）',
   center:[44.6,11.6],zoom:8,
-  markers:[['威尼斯 S. Lucia',[45.4413,12.3208]],['波隆納大廣場',[44.4938,11.3426]],['雙塔 Le Due Torri',[44.4944,11.3464]],['佛羅倫斯 Duomo',[43.7731,11.2560]],['舊橋 Ponte Vecchio',[43.7680,11.2531]]],
-  cap:'威尼斯 → 波隆納 → 佛羅倫斯',
+  markers:[['聖露西亞車站（Venezia Santa Lucia）',[45.4413,12.3208]],['波隆納大廣場（Piazza Maggiore）',[44.4938,11.3426]],['雙塔（Le Due Torri）',[44.4944,11.3464]],['佛羅倫斯主教堂（Duomo di Firenze）',[43.7731,11.2560]],['舊橋（Ponte Vecchio）',[43.7680,11.2531]]],
+  cap:'威尼斯（Venice）→ 波隆納（Bologna）→ 佛羅倫斯（Florence）',
   detail:`<ul>
-   <li><b>~08:30</b> 朱代卡退房，2 號線到聖露西亞火車站（約 20 分，抓早班船避尖峰）。</li>
-   <li><b>~10:00</b> 紅箭／italo 到波隆納中央車站，約 1.5h。先上官網訂早鳥（Super Economy）。行李寄 KiPoint（約 €6/5h）或 Radical Storage。</li>
-   <li><b>波隆納半天（重點是吃）</b>：大廣場＋聖白托略大教堂、海神噴泉、雙塔<b>只看外觀</b>、中世紀市集巷（Quadrilatero）＋拱廊（UNESCO）。午餐肉醬寬麵、餛飩湯、摩泰台拉香腸（Osteria dell'Orsa、Sfoglia Rina）。</li>
-   <li><b>傍晚</b>：取行李，快車到佛羅倫斯 S.M.N.（約 37 分）。check-in，夜遊舊橋 → 領主廣場 → 主教堂打燈。</li>
+   <li><b>~08:30</b> 朱代卡退房，2 號線到聖露西亞火車站（Venezia Santa Lucia），約 20 分（抓早班船避尖峰）。</li>
+   <li><b>~10:00</b> 紅箭（Frecciarossa）／italo 到波隆納中央車站（Bologna Centrale），約 1.5h。先上官網訂早鳥（Super Economy）。行李寄 KiPoint（約 €6/5h）或 Radical Storage。</li>
+   <li><b>波隆納半天（重點是吃）</b>：大廣場（Piazza Maggiore）＋聖白托略大教堂（Basilica di San Petronio）、海神噴泉（Fontana del Nettuno）、雙塔（Le Due Torri）<b>只看外觀</b>、中世紀市集巷（Quadrilatero）＋拱廊（Portici，UNESCO）。午餐肉醬寬麵、餛飩湯、摩泰台拉香腸（Osteria dell’Orsa、Sfoglia Rina）。</li>
+   <li><b>傍晚</b>：取行李，快車到佛羅倫斯新聖母車站（Firenze S.M.N.）（約 37 分）。check-in，夜遊舊橋（Ponte Vecchio）→ 領主廣場（Piazza della Signoria）→ 主教堂（Duomo）打燈。</li>
   </ul>
-  <div class="callout warn"><span class="lab">重要</span>雙塔登塔已關閉：阿西內利斜塔自 2023/10 因隔壁加里森達塔倒塌風險封閉施工多年，2026/9 極可能仍不可登。想登高改去聖白托略大教堂露台。</div>`},
+  <div class="callout warn"><span class="lab">重要</span>雙塔登塔已關閉：阿西內利斜塔（Torre degli Asinelli）自 2023/10 因隔壁加里森達塔（Torre Garisenda）倒塌風險封閉施工多年，2026/9 極可能仍不可登。想登高改去聖白托略大教堂（San Petronio）露台。</div>`},
 
  {date:'10/8',dow:'週四',stay:'佛羅倫斯',color:COL.florence,
-  title:'文藝復興重頭戲 · 圓頂與烏菲茲',
+  title:'文藝復興重頭戲 · 圓頂（Cupola）與烏菲茲（Uffizi）',
   center:[43.770,11.256],zoom:15,
-  markers:[['主教堂 Duomo',[43.7731,11.2560]],['布魯內萊斯基圓頂',[43.7733,11.2556]],['烏菲茲 Uffizi',[43.7678,11.2553]],['領主廣場',[43.7696,11.2558]],['米開朗基羅廣場',[43.7629,11.2650]]],
-  cap:'圓頂 → 烏菲茲 → 米開朗基羅廣場日落',
-  detail:`<div class="callout tip"><span class="lab">週四</span>烏菲茲週一休，今天正常開。</div>
+  markers:[['主教堂（Duomo）',[43.7731,11.2560]],['布魯內萊斯基圓頂（Cupola del Brunelleschi）',[43.7733,11.2556]],['烏菲茲（Uffizi）',[43.7678,11.2553]],['領主廣場（Piazza della Signoria）',[43.7696,11.2558]],['米開朗基羅廣場（Piazzale Michelangelo）',[43.7629,11.2650]]],
+  cap:'圓頂（Cupola）→ 烏菲茲（Uffizi）→ 米開朗基羅廣場（Piazzale Michelangelo）日落',
+  detail:`<div class="callout tip"><span class="lab">週四</span>烏菲茲（Uffizi）週一休，今天正常開。</div>
   <ul>
-   <li><b>上午 主教堂複合區</b>：大教堂、登布魯內萊斯基圓頂（<b>必訂時段、常售完</b>，需「布魯內萊斯基套票」約 €30 含圓頂＋洗禮堂＋鐘樓＋博物館）、洗禮堂「天堂之門」、喬托鐘樓。</li>
-   <li>午餐：中央市場美食街，或 All'Antico Vinaio 帕尼尼。</li>
-   <li><b>下午 烏菲茲美術館</b>：先訂，2–3h；波提切利《維納斯的誕生》《春》。</li>
-   <li><b>傍晚</b>：領主廣場＋傭兵涼廊（免費露天雕像）＋再走舊橋。</li>
-   <li><b>日落</b>：米開朗基羅廣場俯瞰全城（走上去或搭 12／13 號公車）。</li>
+   <li><b>上午 主教堂複合區（Duomo complex）</b>：大教堂（Cattedrale di Santa Maria del Fiore）、登布魯內萊斯基圓頂（Cupola del Brunelleschi）（<b>必訂時段、常售完</b>，需「布魯內萊斯基套票（Brunelleschi Pass）」約 €30 含圓頂＋洗禮堂＋鐘樓＋博物館）、洗禮堂「天堂之門」（Porta del Paradiso）、喬托鐘樓（Campanile di Giotto）。</li>
+   <li>午餐：中央市場（Mercato Centrale）美食街，或 All’Antico Vinaio 帕尼尼。</li>
+   <li><b>下午 烏菲茲美術館（Galleria degli Uffizi）</b>：先訂，2–3h；波提切利《維納斯的誕生》《春》。</li>
+   <li><b>傍晚</b>：領主廣場（Piazza della Signoria）＋傭兵涼廊（Loggia dei Lanzi，免費露天雕像）＋再走舊橋（Ponte Vecchio）。</li>
+   <li><b>日落</b>：米開朗基羅廣場（Piazzale Michelangelo）俯瞰全城（走上去或搭 12／13 號公車）。</li>
   </ul>
   <div class="callout tip"><span class="lab">提醒</span>圓頂 463 階、鐘樓 414 階，別同一早都爬；建議只爬圓頂（看瓦薩里濕壁畫）、鐘樓看外觀。</div>`},
 
  {date:'10/9',dow:'週五',stay:'佛羅倫斯',color:COL.florence,
-  title:'大衛像 ＋ 阿諾河南岸',
+  title:'大衛像（David）＋ 阿諾河南岸（Oltrarno）',
   center:[43.770,11.252],zoom:15,
-  markers:[['學院美術館（大衛）',[43.7770,11.2594]],['聖羅倫佐教堂',[43.7752,11.2540]],['聖神廣場 Santo Spirito',[43.7670,11.2470]],['聖十字教堂',[43.7686,11.2623]],['聖米尼亞托教堂',[43.7595,11.2650]]],
-  cap:'學院 → 奧特拉諾 → 聖米尼亞托日落',
-  detail:`<div class="callout tip"><span class="lab">週五</span>學院美術館週一休，今天正常開。</div>
+  markers:[['學院美術館（Galleria dell’Accademia）',[43.7770,11.2594]],['聖羅倫佐教堂（Basilica di San Lorenzo）',[43.7752,11.2540]],['聖神廣場（Piazza Santo Spirito）',[43.7670,11.2470]],['聖十字教堂（Basilica di Santa Croce）',[43.7686,11.2623]],['聖米尼亞托教堂（San Miniato al Monte）',[43.7595,11.2650]]],
+  cap:'學院（Accademia）→ 阿諾河南岸（Oltrarno）→ 聖米尼亞托（San Miniato）日落',
+  detail:`<div class="callout tip"><span class="lab">週五</span>學院美術館（Accademia）週一休，今天正常開。</div>
   <ul>
-   <li><b>上午</b>：學院美術館看大衛像（訂早場約 1h）→ 聖羅倫佐教堂／梅迪奇禮拜堂（可選）。</li>
-   <li>午餐：聖羅倫佐市場一帶。</li>
-   <li><b>下午 過河到阿諾河南岸（Oltrarno）</b>：布蘭卡奇禮拜堂（馬薩喬濕壁畫，需預約）＋工匠小巷＋聖神廣場。想看名人墓可去聖十字教堂（米開朗基羅、伽利略）。</li>
-   <li><b>日落</b>：直接走上聖米尼亞托教堂（免費、view 不輸米開朗基羅廣場，傍晚有時有額我略聖歌）。</li>
+   <li><b>上午</b>：學院美術館（Galleria dell’Accademia）看大衛像（David）（訂早場約 1h）→ 聖羅倫佐教堂（Basilica di San Lorenzo）／梅迪奇禮拜堂（Cappelle Medicee，可選）。</li>
+   <li>午餐：聖羅倫佐市場（Mercato di San Lorenzo）一帶。</li>
+   <li><b>下午 過河到阿諾河南岸（Oltrarno）</b>：布蘭卡奇禮拜堂（Cappella Brancacci）（馬薩喬濕壁畫，需預約）＋工匠小巷＋聖神廣場（Piazza Santo Spirito）。想看名人墓可去聖十字教堂（Basilica di Santa Croce，米開朗基羅、伽利略）。</li>
+   <li><b>日落</b>：直接走上聖米尼亞托教堂（San Miniato al Monte）（免費、view 不輸米開朗基羅廣場，傍晚有時有額我略聖歌）。</li>
    <li>晚餐＋手工冰淇淋（Vivoli、Gelateria dei Neri）。</li>
   </ul>
-  <div class="callout tip"><span class="lab">取捨</span>碧提宮＋波波里花園本身是半天怪獸，建議跳過，除非捨棄上面行程。</div>`},
+  <div class="callout tip"><span class="lab">取捨</span>碧提宮（Palazzo Pitti）＋波波里花園（Giardino di Boboli）本身是半天怪獸，建議跳過，除非捨棄上面行程。</div>`},
 
  {date:'10/10',dow:'週六',stay:'拿波里',color:COL.naples,
-  title:'佛羅倫斯 → 拿波里 · 舊城與海濱披薩',
+  title:'佛羅倫斯（Florence）→ 拿波里（Naples）· 舊城與海濱披薩',
   center:[40.845,14.255],zoom:14,
-  markers:[['Spaccanapoli 舊城',[40.8490,14.2570]],['聖塞維羅禮拜堂',[40.8493,14.2541]],['蛋堡 Castel dell’Ovo',[40.8281,14.2477]],['國家考古博物館 MANN',[40.8536,14.2506]]],
-  cap:'舊城 → 海濱 → 維蘇威火山',
+  markers:[['舊城（Spaccanapoli）',[40.8490,14.2570]],['聖塞維羅禮拜堂（Cappella Sansevero）',[40.8493,14.2541]],['蛋堡（Castel dell’Ovo）',[40.8281,14.2477]],['國家考古博物館（MANN）',[40.8536,14.2506]]],
+  cap:'舊城（Spaccanapoli）→ 海濱（Lungomare）→ 維蘇威火山（Vesuvius）',
   detail:`<ul>
-   <li><b>~08:30–09:00</b> 早班紅箭到拿波里中央車站，直達約 3h，中午前到。check-in／放行李。</li>
-   <li><b>下午 舊城</b>：Spaccanapoli／法庭街／聖額我略亞美尼亞街（聖誕小物街）；<b>聖塞維羅禮拜堂</b>《蒙紗的基督》（必訂時段、週二休，今天週六 OK，館內約 40 分）。</li>
-   <li><b>傍晚／晚上</b>：海濱大道散步、蛋堡＋維蘇威火山；正宗拿波里披薩（Da Michele／Sorbillo 排隊兇，或 Di Matteo 隊伍短一點）。</li>
+   <li><b>~08:30–09:00</b> 早班紅箭（Frecciarossa）到拿波里中央車站（Napoli Centrale），直達約 3h，中午前到。check-in／放行李。</li>
+   <li><b>下午 舊城</b>：主街 Spaccanapoli／法庭街（Via dei Tribunali）／聖額我略亞美尼亞街（San Gregorio Armeno，聖誕小物街）；<b>聖塞維羅禮拜堂（Cappella Sansevero）</b>《蒙紗的基督》（Cristo Velato）（必訂時段、週二休，今天週六 OK，館內約 40 分）。</li>
+   <li><b>傍晚／晚上</b>：海濱大道（Lungomare）散步、蛋堡（Castel dell’Ovo）＋維蘇威火山（Vesuvius）；正宗拿波里披薩（Da Michele／Sorbillo 排隊兇，或 Di Matteo 隊伍短一點）。</li>
   </ul>
-  <div class="callout tip"><span class="lab">提醒</span>太陽往西邊海灣落下、不是落在火山後面。龐貝真文物多在國家考古博物館（MANN），理想上逛龐貝前先看，但半天較滿，要看得捨棄海濱那段。</div>`},
+  <div class="callout tip"><span class="lab">提醒</span>太陽往西邊海灣落下、不是落在火山後面。龐貝真文物多在國家考古博物館（MANN, Museo Archeologico Nazionale），理想上逛龐貝前先看，但半天較滿，要看得捨棄海濱那段。</div>`},
 
  {date:'10/11',dow:'週日',stay:'羅馬',color:COL.naples,
-  title:'龐貝 → 傍晚火車 → 羅馬',
+  title:'龐貝（Pompeii）→ 傍晚火車 → 羅馬（Rome）',
   center:[40.9,13.5],zoom:8,
-  markers:[['龐貝遺址 Pompei Scavi',[40.7497,14.4869]],['神祕別墅',[40.7515,14.4775]],['拿波里中央車站',[40.8530,14.2727]],['羅馬 Termini',[41.9009,12.5024]]],
-  cap:'龐貝 → 羅馬',
+  markers:[['龐貝遺址（Pompei Scavi）',[40.7497,14.4869]],['神祕別墅（Villa dei Misteri）',[40.7515,14.4775]],['拿波里中央車站（Napoli Centrale）',[40.8530,14.2727]],['羅馬特米尼車站（Roma Termini）',[41.9009,12.5024]]],
+  cap:'龐貝（Pompeii）→ 羅馬（Rome）',
   detail:`<div class="miniroute">
-   <div class="r"><div class="t">9:00</div><div class="c">退房，行李寄拿波里中央車站 KiPoint</div></div>
-   <div class="r"><div class="t">9:15</div><div class="c">加里波底站搭環維蘇威線往索倫托方向（~€3.5 現場買）</div></div>
+   <div class="r"><div class="t">9:00</div><div class="c">退房，行李寄拿波里中央車站（Napoli Centrale）KiPoint</div></div>
+   <div class="r"><div class="t">9:15</div><div class="c">加里波底站（Garibaldi）搭環維蘇威線（Circumvesuviana）往索倫托（Sorrento）方向（~€3.5 現場買）</div></div>
    <div class="r"><div class="t">10:10</div><div class="c">到龐貝遺址站（Pompei Scavi – Villa dei Misteri）</div></div>
    <div class="r"><div class="t">10:30</div><div class="c">Klook 中文半日導覽 → 13:00 結束後自己續逛 1–1.5h</div></div>
    <div class="r"><div class="t">14:30</div><div class="c">回拿波里取行李，午餐／海濱</div></div>
-   <div class="r"><div class="t">18:30</div><div class="c">紅箭 → 羅馬 Termini（約 1h10）→ 19:45 check-in、輕鬆晚餐</div></div>
+   <div class="r"><div class="t">18:30</div><div class="c">紅箭（Frecciarossa）→ 羅馬特米尼車站（Roma Termini）（約 1h10）→ 19:45 check-in、輕鬆晚餐</div></div>
   </div>
-  <div class="callout warn"><span class="lab">龐貝注意</span>門票無論如何<b>先線上訂</b>（旺季 timed entry，標準票 €18）。小團 6 人成團，未滿可能改期，<b>備好自助逛 B 計畫</b>。神祕別墅在西北角、圓形劇場在東南角，1.5h 內擇一。環維蘇威線車舊、扒手有名。穿好走的鞋、帶水帽子。</div>`},
+  <div class="callout warn"><span class="lab">龐貝注意</span>門票無論如何<b>先線上訂</b>（旺季 timed entry，標準票 €18）。小團 6 人成團，未滿可能改期，<b>備好自助逛 B 計畫</b>。神祕別墅（Villa dei Misteri）在西北角、圓形劇場（Anfiteatro）在東南角，1.5h 內擇一。環維蘇威線（Circumvesuviana）車舊、扒手有名。穿好走的鞋、帶水帽子。</div>`},
 
  {date:'10/12',dow:'週一',stay:'羅馬',color:COL.rome,
-  title:'梵蒂岡日',
+  title:'梵蒂岡日（Vatican）',
   center:[41.903,12.458],zoom:15,
-  markers:[['梵蒂岡博物館',[41.9065,12.4536]],['西斯汀禮拜堂',[41.9029,12.4545]],['聖伯多祿大教堂',[41.9022,12.4539]],['聖天使堡',[41.9031,12.4663]]],
-  cap:'梵蒂岡博物館 → 聖伯多祿 → 聖天使橋',
+  markers:[['梵蒂岡博物館（Musei Vaticani）',[41.9065,12.4536]],['西斯汀禮拜堂（Cappella Sistina）',[41.9029,12.4545]],['聖伯多祿大教堂（Basilica di San Pietro）',[41.9022,12.4539]],['聖天使堡（Castel Sant’Angelo）',[41.9031,12.4663]]],
+  cap:'梵蒂岡博物館（Musei Vaticani）→ 聖伯多祿（San Pietro）→ 聖天使橋（Ponte Sant’Angelo）',
   detail:`<ul>
-   <li><b>08:00</b> 梵蒂岡博物館（訂最早 timed／skip-line）→ 西斯汀禮拜堂，約 3h。</li>
-   <li><b>11:30</b> 聖伯多祿大教堂（免費、過安檢）。登圓頂：樓梯 €8（551 階）／電梯＋樓梯 €10（之後 320 階），建議先登頂再逛內部。</li>
+   <li><b>08:00</b> 梵蒂岡博物館（Musei Vaticani）（訂最早 timed／skip-line）→ 西斯汀禮拜堂（Cappella Sistina），約 3h。</li>
+   <li><b>11:30</b> 聖伯多祿大教堂（Basilica di San Pietro）（免費、過安檢）。登圓頂（Cupola）：樓梯 €8（551 階）／電梯＋樓梯 €10（之後 320 階），建議先登頂再逛內部。</li>
    <li><b>13:00</b> 午餐：博爾戈皮歐（Borgo Pio）街區。</li>
-   <li><b>14:30</b> 聖天使堡 <b>週一公休</b>，只走聖天使橋＋外觀河景（橋上貝尼尼天使最上鏡）。</li>
-   <li><b>16:00</b> 過橋、河岸散步，可續走到納沃納廣場。晚餐普拉蒂／橋區。</li>
+   <li><b>14:30</b> 聖天使堡（Castel Sant’Angelo）<b>週一公休</b>，只走聖天使橋（Ponte Sant’Angelo）＋外觀河景（橋上貝尼尼天使最上鏡）。</li>
+   <li><b>16:00</b> 過橋、河岸散步，可續走到納沃納廣場（Piazza Navona）。晚餐普拉蒂（Prati）／橋區（Ponte）。</li>
   </ul>
   <div class="callout tip"><span class="lab">提醒</span>週一是梵蒂岡最擠的一天，早場可避；西斯汀角落有通往大教堂的捷徑門。👗 梵蒂岡＋聖伯多祿服裝規定：遮肩蓋膝。</div>`},
 
  {date:'10/13',dow:'週二',stay:'羅馬',color:COL.rome,
-  title:'古羅馬日 · 幾乎一直線',
+  title:'古羅馬日（Ancient Rome）· 幾乎一直線',
   center:[41.892,12.486],zoom:15,
-  markers:[['競技場 Colosseo',[41.8902,12.4922]],['古羅馬廣場',[41.8925,12.4853]],['帕拉提諾山',[41.8893,12.4870]],['卡比托利歐廣場',[41.8932,12.4828]],['威尼斯廣場',[41.8959,12.4828]]],
-  cap:'競技場 → 古羅馬廣場 → 威尼斯廣場',
+  markers:[['競技場（Colosseo）',[41.8902,12.4922]],['古羅馬廣場（Foro Romano）',[41.8925,12.4853]],['帕拉提諾山（Palatino）',[41.8893,12.4870]],['卡比托利歐廣場（Piazza del Campidoglio）',[41.8932,12.4828]],['威尼斯廣場（Piazza Venezia）',[41.8959,12.4828]]],
+  cap:'競技場（Colosseo）→ 古羅馬廣場（Foro Romano）→ 威尼斯廣場（Piazza Venezia）',
   detail:`<div class="callout tip"><span class="lab">地理最集中的一天</span>幾乎一直線。</div>
   <ul>
-   <li><b>08:30</b> 競技場（訂 timed 票，建議加 <b>地板層 Arena 的 Full Experience</b>）。</li>
-   <li><b>10:30</b> 古羅馬廣場＋帕拉提諾山（與競技場同聯票，順出口走）。</li>
-   <li><b>13:00</b> 午餐：蒙蒂區（競技場北側，文青巷弄、價格合理）。</li>
-   <li><b>14:30</b> 卡比托利歐廣場（米開朗基羅設計）＋市政廳露台；可選卡比托利尼博物館。</li>
-   <li><b>16:00</b> 威尼斯廣場＋維托里安諾觀景台（玻璃電梯 €10 看屋頂視野）。</li>
-   <li>晚餐：蒙蒂巷弄；想換氛圍改猶太區（炸朝鮮薊 carciofi alla giudia）。</li>
+   <li><b>08:30</b> 競技場（Colosseo）（訂 timed 票，建議加 <b>地板層 Arena 的 Full Experience</b>）。</li>
+   <li><b>10:30</b> 古羅馬廣場（Foro Romano）＋帕拉提諾山（Palatino）（與競技場同聯票，順出口走）。</li>
+   <li><b>13:00</b> 午餐：蒙蒂區（Monti，競技場北側，文青巷弄、價格合理）。</li>
+   <li><b>14:30</b> 卡比托利歐廣場（Piazza del Campidoglio）（米開朗基羅設計）＋市政廳露台；可選卡比托利尼博物館（Musei Capitolini）。</li>
+   <li><b>16:00</b> 威尼斯廣場（Piazza Venezia）＋維托里安諾觀景台（Vittoriano）（玻璃電梯 €10 看屋頂視野）。</li>
+   <li>晚餐：蒙蒂巷弄；想換氛圍改猶太區（Ghetto，炸朝鮮薊 carciofi alla giudia）。</li>
   </ul>`},
 
  {date:'10/14',dow:'週三',stay:'羅馬',color:COL.rome,
-  title:'歷史中心 → 特拉斯提弗列',
+  title:'歷史中心 → 特拉斯提弗列（Trastevere）',
   center:[41.898,12.478],zoom:15,
-  markers:[['西班牙階梯',[41.9059,12.4828]],['許願池 Trevi',[41.9009,12.4833]],['萬神殿 Pantheon',[41.8986,12.4769]],['納沃納廣場',[41.8992,12.4731]],['特拉斯提弗列',[41.8895,12.4690]]],
-  cap:'西班牙階梯 → 許願池 → 萬神殿 → 特拉斯提弗列',
+  markers:[['西班牙階梯（Spanish Steps）',[41.9059,12.4828]],['許願池（Fontana di Trevi）',[41.9009,12.4833]],['萬神殿（Pantheon）',[41.8986,12.4769]],['納沃納廣場（Piazza Navona）',[41.8992,12.4731]],['特拉斯提弗列（Trastevere）',[41.8895,12.4690]]],
+  cap:'西班牙階梯（Spanish Steps）→ 許願池（Trevi）→ 萬神殿（Pantheon）→ 特拉斯提弗列（Trastevere）',
   detail:`<div class="callout tip"><span class="lab">週三</span>避開梵蒂岡（教宗接見）；全程歷史中心，景點彼此 5–10 分鐘。</div>
   <ul>
-   <li><b>09:00</b> 西班牙階梯（早上人少）。</li>
-   <li><b>10:00</b> 許願池（越早越好，記得投幣）。</li>
-   <li><b>11:00</b> 萬神殿（現需門票 €5，建議線上先訂）。</li>
-   <li><b>12:00</b> 納沃納廣場（四河噴泉）。</li>
-   <li><b>13:00</b> 午餐：納沃納／鮮花廣場（市集約 14:00 收攤，要逛趁早）。</li>
-   <li><b>午後順路</b>：銀塔廣場（凱撒遇刺處＋貓咪遺址）＋猶太區。</li>
-   <li><b>16:00</b> 過台伯河進特拉斯提弗列：聖母大殿、石板巷弄。</li>
-   <li><b>19:00</b> 晚餐（羅馬最佳晚餐氛圍）：起司胡椒麵、培根蛋麵。Da Enzo al 29 很小排很兇，要早去或找替代。</li>
+   <li><b>09:00</b> 西班牙階梯（Spanish Steps）（早上人少）。</li>
+   <li><b>10:00</b> 許願池（Fontana di Trevi）（越早越好，記得投幣）。</li>
+   <li><b>11:00</b> 萬神殿（Pantheon）（現需門票 €5，建議線上先訂）。</li>
+   <li><b>12:00</b> 納沃納廣場（Piazza Navona）（四河噴泉 Fontana dei Quattro Fiumi）。</li>
+   <li><b>13:00</b> 午餐：納沃納／鮮花廣場（Campo de’ Fiori，市集約 14:00 收攤，要逛趁早）。</li>
+   <li><b>午後順路</b>：銀塔廣場（Largo di Torre Argentina，凱撒遇刺處＋貓咪遺址）＋猶太區（Ghetto）。</li>
+   <li><b>16:00</b> 過台伯河（Tiber）進特拉斯提弗列（Trastevere）：聖母大殿（Santa Maria in Trastevere）、石板巷弄。</li>
+   <li><b>19:00</b> 晚餐（羅馬最佳晚餐氛圍）：起司胡椒麵（cacio e pepe）、培根蛋麵（carbonara）。Da Enzo al 29 很小排很兇，要早去或找替代。</li>
   </ul>`},
 
  {date:'10/15',dow:'週四',stay:'— 離程',color:COL.rome,
-  title:'城北收尾 → 機場 FCO',
+  title:'城北收尾 → 機場（FCO）',
   center:[41.91,12.47],zoom:13,
-  markers:[['波各賽美術館',[41.9142,12.4922]],['平喬觀景台',[41.9112,12.4790]],['人民廣場',[41.9109,12.4768]],['羅馬 Termini',[41.9009,12.5024]]],
-  cap:'波各賽 → 人民廣場 → FCO',
-  detail:`<div class="callout tip"><span class="lab">週四</span>波各賽美術館週一休，今天正常開。</div>
+  markers:[['波各賽美術館（Galleria Borghese）',[41.9142,12.4922]],['平喬觀景台（Terrazza del Pincio）',[41.9112,12.4790]],['人民廣場（Piazza del Popolo）',[41.9109,12.4768]],['羅馬特米尼車站（Roma Termini）',[41.9009,12.5024]]],
+  cap:'波各賽（Borghese）→ 人民廣場（Piazza del Popolo）→ FCO',
+  detail:`<div class="callout tip"><span class="lab">週四</span>波各賽美術館（Galleria Borghese）週一休，今天正常開。</div>
   <ul>
    <li><b>早上先寄行李</b>（旅館或 Termini 寄存）。</li>
-   <li><b>09:00</b> 波各賽美術館（<b>最難訂、需數週前預約</b>；限時 2h；貝尼尼雕塑、卡拉瓦喬）。</li>
-   <li><b>11:00</b> 波各賽公園散步 → 平喬觀景台俯瞰人民廣場。</li>
-   <li><b>12:00</b> 人民廣場午餐、最後採買。</li>
-   <li><b>~14:00</b> 取行李。下午彈性：咖啡、雙子教堂、別走遠。</li>
-   <li><b>~18:30</b>（最晚 19:00 前離 Termini）李奧納多快線（32 分直達）→ FCO。</li>
-   <li><b>~19:05</b> 到 FCO T3 辦登機。<b>23:00</b> EY084 起飛 → 阿布達比轉機 → 10/17 10:00 抵桃園。</li>
+   <li><b>09:00</b> 波各賽美術館（Galleria Borghese）（<b>最難訂、需數週前預約</b>；限時 2h；貝尼尼雕塑、卡拉瓦喬）。</li>
+   <li><b>11:00</b> 波各賽公園（Villa Borghese）散步 → 平喬觀景台（Terrazza del Pincio）俯瞰人民廣場。</li>
+   <li><b>12:00</b> 人民廣場（Piazza del Popolo）午餐、最後採買。</li>
+   <li><b>~14:00</b> 取行李。下午彈性：咖啡、雙子教堂（Santa Maria in Montesanto / dei Miracoli）、別走遠。</li>
+   <li><b>~18:30</b>（最晚 19:00 前離 Termini）李奧納多快線（Leonardo Express，32 分直達）→ 羅馬機場（FCO）。</li>
+   <li><b>~19:05</b> 到 FCO T3 辦登機。<b>23:00</b> EY084 起飛 → 阿布達比（Abu Dhabi）轉機 → 10/17 10:00 抵桃園（TPE）。</li>
   </ul>`},
 ];
 
