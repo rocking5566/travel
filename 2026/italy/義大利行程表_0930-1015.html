@@ -143,6 +143,7 @@ td.stay i{width:9px;height:9px;border-radius:50%;display:inline-block;margin-rig
 .day h3{font-family:"Fraunces",serif;font-weight:600;font-size:26px;margin:10px 0 6px;line-height:1.18;}
 .day .stayline{font-family:"Fraunces",serif;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 16px;}
 .day .stayline i{width:9px;height:9px;border-radius:50%;display:inline-block;margin-right:7px;vertical-align:middle;}
+.day-detail li,.miniroute .c,.card ul li{overflow-wrap:anywhere;}
 .day-detail ul{margin:0;padding-left:0;list-style:none;}
 .day-detail li{position:relative;padding-left:22px;margin:0 0 9px;}
 .day-detail li::before{content:"";position:absolute;left:2px;top:13px;width:7px;height:7px;border:1.5px solid var(--gold);transform:rotate(45deg);}
@@ -350,7 +351,7 @@ footer .big{font-family:"Fraunces",serif;font-weight:600;font-style:normal;color
           <li><b>佛羅倫斯三寶</b>：烏菲茲、學院（大衛）、圓頂套票 — 分開訂時段（10/8、10/9）</li>
           <li><b>梵蒂岡博物館</b> — 早場／skip-line（10/12）</li>
           <li><b>威尼斯</b>：聖馬可大教堂、總督宮、T Fondaco 頂樓（免費需預約）（10/5）</li>
-          <li><b>萬神殿 €5</b> — 線上先訂免排隊（10/14）</li>
+          <li><b>萬神殿 €5–7</b> — 線上先訂免排隊（10/14）</li>
           <li><b>聖伯多祿圓頂</b> — 現場或線上（10/12）</li>
           <li><b>火車</b>：威尼斯→波隆納→佛羅倫斯→拿波里→羅馬，Trenitalia／Italo 官方 App 訂早鳥</li>
           <li><b>多洛米堤團</b>：確認纜車營運後再下訂</li>
@@ -363,6 +364,10 @@ footer .big{font-family:"Fraunces",serif;font-weight:600;font-style:normal;color
           <li><b>閉館日已避開</b>：烏菲茲／學院（週一休）排週四五；波各賽（週一休）排週四；聖天使堡（週一休）只看外觀；聖塞維羅（週二休）排週六。</li>
           <li><b>服裝</b>：教堂普遍要遮肩蓋膝，梵蒂岡、聖伯多祿尤嚴。</li>
           <li><b>扒手熱區</b>：環維蘇威線、威尼斯跳島船、羅馬地鐵與景點周邊，顧好隨身物。</li>
+          <li><b>火車罷工（sciopero）</b>：義大利火車與地方交通常見罷工，多提前約 10 天公告。出發前查 <b>Trenitalia 官網（搜「sciopero／avvisi」）</b> 或 <b>交通部罷工列表 scioperi.mit.gov.it</b>；10/15 回程尤其多留緩衝，或備計程車直奔 FCO。</li>
+          <li><b>威尼斯高水位（acqua alta）</b>：10 月可能遇到，聖馬可區會架臨時棧道；帶防水鞋套、查 Hi!Tide Venezia App 潮汐預報。</li>
+          <li><b>區間車打票</b>：科莫（區間火車）、環維蘇威線等非劃位票，<b>上車前要在月台機器打票（validate / convalida）</b>，否則重罰。</li>
+          <li><b>網路與現金</b>：落地前備歐洲 eSIM（timed-entry QR、地圖、船班都靠網路）；另備少量現金（環維蘇威線櫃台、貢多拉、小店、教堂捐獻）。</li>
           <li><b>鞋</b>：全程大量步行＋爬塔（圓頂、登頂），穿好走的鞋。</li>
           <li><b>行李額度（Etihad）</b>：手提 1 件 7kg；託運 25kg。</li>
           <li><b>離程</b>：10/15 班機 23:00，20:00 前到 FCO；行李寄 Termini 附近，取了直接搭快線。</li>
@@ -409,7 +414,7 @@ const DAYS=[
   cap:'米蘭（Milan）市中心 · 一個下午走得完',
   detail:`<ul>
    <li><b>06:45</b> 抵馬爾彭薩機場（Malpensa, T1），提行李、過海關。</li>
-   <li>搭 <b>馬爾彭薩快線（Malpensa Express）</b> 約 50 分進市區（中央車站 Milano Centrale 或 Cadorna）。</li>
+   <li>搭 <b>馬爾彭薩快線（Malpensa Express）</b> 約 50 分進市區（到中央車站（Milano Centrale）或卡多爾納站（Cadorna））。</li>
    <li>旅館寄行李（一般 14:00–15:00 才能 check-in）。</li>
    <li><b>下午徒步</b>：大教堂（Duomo）＋<b>登頂露台</b>（先線上訂含 rooftop 票）→ 艾曼紐二世迴廊（Galleria Vittorio Emanuele II）→ 步行 15 分到斯福爾札古堡（Castello Sforzesco）＋森皮奧內公園（Parco Sempione）傍晚散步。</li>
    <li>晚餐市中心，早睡補眠（紅眼航班後第一天）。</li>
@@ -431,11 +436,11 @@ const DAYS=[
  {date:'10/2',dow:'週五',stay:'波札諾（跟團）',color:COL.dolo,
   title:'多洛米堤（Dolomites）D1 · 富內斯山谷（Val di Funes）',
   center:[46.57,11.55],zoom:9,
-  markers:[['波札諾（Bolzano）',[46.4983,11.3548]],['富內斯山谷（Val di Funes）',[46.6406,11.7016]],['洋蔥頂教堂（Santa Maddalena）',[46.6406,11.7016]]],
+  markers:[['波札諾（Bolzano）',[46.4983,11.3548]],['富內斯山谷（Val di Funes）',[46.6406,11.7016]],['洋蔥頂教堂（Chiesa di Santa Maddalena）',[46.6406,11.7016]]],
   cap:'米蘭（Milan）→ 波札諾（Bolzano）→ 富內斯（Val di Funes）',
   detail:`<div class="callout tip"><span class="lab">跟團</span>領君遊「多洛米蒂夢幻純享 3 日遊」€600/人；10/2 米蘭（Milan）出發、10/4 威尼斯（Venice）結束（已成團、可異地結束）。情侶同房免單房差。</div>
   <ul>
-   <li><b>D1</b>：米蘭（Milan）接 → 波札諾（Bolzano）→ 富內斯山谷（Val di Funes）→ 洋蔥頂教堂（Santa Maddalena）→ 宿波札諾（Bolzano）。</li>
+   <li><b>D1</b>：米蘭（Milan）市區酒店接 → 波札諾（Bolzano）→ 富內斯山谷（Val di Funes，約 1.5h）→ 洋蔥頂教堂（Chiesa di Santa Maddalena，約 30min）→ 宿波札諾（Bolzano）。</li>
   </ul>
   <div class="callout warn"><span class="lab">出發前必確認</span>纜車狀態：塞切達（Seceda）與西烏西高原（Alpe di Siusi）纜車曾公告維護（預計 2026/6 中重開），這兩條是 D2 精華，下訂前務必書面跟客服確認 10/2–10/4 正常營運。</div>`},
 
@@ -445,7 +450,7 @@ const DAYS=[
   markers:[['塞切達（Seceda）',[46.6086,11.7256]],['奧蒂塞伊（Ortisei）',[46.5747,11.6722]],['西烏西高原（Alpe di Siusi）',[46.5400,11.6200]]],
   cap:'塞切達（Seceda）· 西烏西高山草原（Alpe di Siusi）',
   detail:`<ul>
-   <li><b>D2</b>：波札諾（Bolzano）→ 刀鋒山／塞切達（Seceda）→ 奧蒂塞伊小鎮（Ortisei）→ 西烏西高山草原（Alpe di Siusi）→ 宿波札諾。</li>
+   <li><b>D2</b>：波札諾（Bolzano）→ 刀鋒山／塞切達（Seceda，約 1.5h）→ 奧蒂塞伊小鎮（Ortisei，約 30min）→ 西烏西高山草原（Alpe di Siusi，約 2h）→ 宿波札諾。</li>
   </ul>
   <div class="callout warn"><span class="lab">自費（兩人預估）</span>塞切達（Seceda）纜車 €52/人、西烏西（Alpe di Siusi）纜車 €35–39/人、布萊耶斯湖（Braies）划船 €15–20/人、奧茨冰人博物館（Ötzi）€26/人。</div>
   <div class="callout tip"><span class="lab">提醒</span>落葉松金黃約 10 月中下旬才到高峰，10 月初多半綠中帶黃。司導工時 07:00–21:00、每日至多 10 小時；遲到只等 5 分鐘。行李會跟著上山、最後落在威尼斯，米蘭別買太多。</div>`},
@@ -456,8 +461,8 @@ const DAYS=[
   markers:[['布萊耶斯湖（Lago di Braies）',[46.6947,12.0852]],['卡雷扎湖（Lago di Carezza）',[46.4090,11.5770]],['威尼斯特龍凱托（Venezia Tronchetto）',[45.4400,12.3000]],['朱代卡（Giudecca）',[45.4257,12.3210]]],
   cap:'布萊耶斯湖（Lago di Braies）→ 威尼斯（Venice）',
   detail:`<ul>
-   <li><b>D3</b>：波札諾（Bolzano）→ 布萊耶斯湖（Lago di Braies）→ 卡雷扎湖（Lago di Carezza）→ 拉特馬峰（Latemar）→ 傍晚抵威尼斯特龍凱托（Venezia Tronchetto）。</li>
-   <li>特龍凱托（Tronchetto）下車，<b>先買 ACTV 多日水上巴士券（vaporetto pass）</b>（3 日券約 €40，住朱代卡又要跳島最省）。</li>
+   <li><b>D3</b>：波札諾（Bolzano）→ 布萊耶斯湖（Lago di Braies，約 30min）→ 卡雷扎湖（Lago di Carezza，約 1h）→ 拉特馬峰（Latemar，約 30min）→ 傍晚抵威尼斯特龍凱托（Venezia Tronchetto），跟團結束。</li>
+   <li>特龍凱托（Tronchetto）下車，<b>先買 ACTV 多日水上巴士券（vaporetto pass）</b>（72 小時券約 €45，住朱代卡又要跳島最省）。</li>
    <li>搭 <b>2 號線</b> 到朱代卡（Giudecca）旅館 check-in。</li>
    <li>傍晚走朱代卡北岸水岸步道（Fondamenta），正對聖馬可（San Marco）、安康聖母教堂（Santa Maria della Salute）天際線夜景，免費零體力。晚餐在朱代卡。</li>
   </ul>`},
@@ -481,10 +486,10 @@ const DAYS=[
   center:[45.47,12.39],zoom:12,
   markers:[['布拉諾（Burano）',[45.4853,12.4167]],['托爾切洛（Torcello）',[45.4978,12.4180]],['穆拉諾（Murano）',[45.4590,12.3540]],['新堤岸（Fondamente Nove）',[45.4419,12.3460]]],
   cap:'布拉諾（Burano）→ 托爾切洛（Torcello）→ 穆拉諾（Murano）',
-  detail:`<div class="callout tip"><span class="lab">重點</span>早上先攻布拉諾（Burano），避開 11:00–15:00 人潮高峰。<b>務必 7:45 前出門。</b></div>
+  detail:`<div class="callout tip"><span class="lab">重點</span>早上先攻布拉諾（Burano），避開 11:00–15:00 人潮高峰。<b>務必 07:45 前出門。</b></div>
   <div class="miniroute">
-   <div class="r"><div class="t">7:45</div><div class="c">朱代卡（Giudecca）→ 新堤岸（Fondamente Nove）（4.1 號，約 35 分）→ 布拉諾（Burano）（12 號，約 45 分，過穆拉諾不下）</div></div>
-   <div class="r"><div class="t">9:30</div><div class="c"><b>布拉諾（Burano）</b>：彩色屋、斜塔、蕾絲，約 1.5h</div></div>
+   <div class="r"><div class="t">07:45</div><div class="c">朱代卡（Giudecca）→ 新堤岸（Fondamente Nove）（4.1 號，約 35 分）→ 布拉諾（Burano）（12 號，約 45 分，過穆拉諾不下）</div></div>
+   <div class="r"><div class="t">09:30</div><div class="c"><b>布拉諾（Burano）</b>：彩色屋、斜塔、蕾絲，約 1.5h</div></div>
    <div class="r"><div class="t">11:30</div><div class="c">布拉諾午餐：海鮮、墨魚燉飯（risotto de gò）</div></div>
    <div class="r"><div class="t">午後</div><div class="c">托爾切洛（Torcello）拜占庭馬賽克大教堂＋鐘樓（9 號，5 分）→ 穆拉諾（Murano）玻璃島</div></div>
    <div class="r"><div class="t">16:30</div><div class="c">穆拉諾（Murano）→ 朱代卡（4.1／4.2，約 45 分），天黑前到家</div></div>
@@ -544,7 +549,7 @@ const DAYS=[
    <li><b>下午 舊城</b>：主街 Spaccanapoli／法庭街（Via dei Tribunali）／聖額我略亞美尼亞街（San Gregorio Armeno，聖誕小物街）；<b>聖塞維羅禮拜堂（Cappella Sansevero）</b>《蒙紗的基督》（Cristo Velato）（必訂時段、週二休，今天週六 OK，館內約 40 分）。</li>
    <li><b>傍晚／晚上</b>：海濱大道（Lungomare）散步、蛋堡（Castel dell’Ovo）＋維蘇威火山（Vesuvius）；正宗拿波里披薩（Da Michele／Sorbillo 排隊兇，或 Di Matteo 隊伍短一點）。</li>
   </ul>
-  <div class="callout tip"><span class="lab">提醒</span>太陽往西邊海灣落下、不是落在火山後面。龐貝真文物多在國家考古博物館（MANN, Museo Archeologico Nazionale），理想上逛龐貝前先看，但半天較滿，要看得捨棄海濱那段。</div>`},
+  <div class="callout tip"><span class="lab">提醒</span>太陽往西邊海灣落下、不是落在火山後面。國家考古博物館（MANN, Museo Archeologico Nazionale）已改放 10/11 龐貝回來後的彈性時段（見 10/11），10/10 維持舊城＋海濱即可。</div>`},
 
  {date:'10/11',dow:'週日',stay:'羅馬',color:COL.naples,
   title:'龐貝（Pompeii）→ 傍晚火車 → 羅馬（Rome）',
@@ -556,10 +561,12 @@ const DAYS=[
    <div class="r"><div class="t">9:15</div><div class="c">加里波底站（Garibaldi）搭環維蘇威線（Circumvesuviana）往索倫托（Sorrento）方向（~€3.5 現場買）</div></div>
    <div class="r"><div class="t">10:10</div><div class="c">到龐貝遺址站（Pompei Scavi – Villa dei Misteri）</div></div>
    <div class="r"><div class="t">10:30</div><div class="c">Klook 中文半日導覽 → 13:00 結束後自己續逛 1–1.5h</div></div>
-   <div class="r"><div class="t">14:30</div><div class="c">回拿波里取行李，午餐／海濱</div></div>
-   <div class="r"><div class="t">18:30</div><div class="c">紅箭（Frecciarossa）→ 羅馬特米尼車站（Roma Termini）（約 1h10）→ 19:45 check-in、輕鬆晚餐</div></div>
+   <div class="r"><div class="t">14:30</div><div class="c">龐貝離開 → 環維蘇威線回拿波里</div></div>
+   <div class="r"><div class="t">下午<br>彈性</div><div class="c"><b>有體力</b>：地鐵 1 號線到 <b>國家考古博物館（MANN, Museo Archeologico Nazionale）</b>看龐貝真文物約 1.5–2h（週日開、19:30 關、當天買票即可）；<b>沒體力</b>：拿波里午餐／海濱悠閒</div></div>
+   <div class="r"><div class="t">19:00</div><div class="c">回拿波里中央車站（Napoli Centrale）取行李</div></div>
+   <div class="r"><div class="t">20:00</div><div class="c">紅箭（Frecciarossa）→ 羅馬特米尼車站（Roma Termini）（約 1h10，<b>鎖此班 Super Economy</b>，MANN 有看沒看都搭這班）→ 21:10 到羅馬 check-in、晚餐</div></div>
   </div>
-  <div class="callout warn"><span class="lab">龐貝注意</span>門票無論如何<b>先線上訂</b>（旺季 timed entry，標準票 €18）。小團 6 人成團，未滿可能改期，<b>備好自助逛 B 計畫</b>。神祕別墅（Villa dei Misteri）在西北角、圓形劇場（Anfiteatro）在東南角，1.5h 內擇一。環維蘇威線（Circumvesuviana）車舊、扒手有名。穿好走的鞋、帶水帽子。</div>`},
+  <div class="callout warn"><span class="lab">龐貝注意</span>門票無論如何<b>先線上訂</b>（旺季 timed entry，標準票 €18；2026/3 起官方售票平台改為 vivaticket.com）。小團 6 人成團，未滿可能改期，<b>備好自助逛 B 計畫</b>。神祕別墅（Villa dei Misteri）在西北角、圓形劇場（Anfiteatro）在東南角，1.5h 內擇一。環維蘇威線（Circumvesuviana）車舊、扒手有名。穿好走的鞋、帶水帽子。</div>`},
 
  {date:'10/12',dow:'週一',stay:'羅馬',color:COL.rome,
   title:'梵蒂岡日（Vatican）',
@@ -599,7 +606,7 @@ const DAYS=[
   <ul>
    <li><b>09:00</b> 西班牙階梯（Spanish Steps）（早上人少）。</li>
    <li><b>10:00</b> 許願池（Fontana di Trevi）（越早越好，記得投幣）。</li>
-   <li><b>11:00</b> 萬神殿（Pantheon）（現需門票 €5，建議線上先訂）。</li>
+   <li><b>11:00</b> 萬神殿（Pantheon）（現需門票 €5–7，傳 2026/7 起調漲，現場／官網確認，建議線上先訂）。</li>
    <li><b>12:00</b> 納沃納廣場（Piazza Navona）（四河噴泉 Fontana dei Quattro Fiumi）。</li>
    <li><b>13:00</b> 午餐：納沃納／鮮花廣場（Campo de’ Fiori，市集約 14:00 收攤，要逛趁早）。</li>
    <li><b>午後順路</b>：銀塔廣場（Largo di Torre Argentina，凱撒遇刺處＋貓咪遺址）＋猶太區（Ghetto）。</li>
