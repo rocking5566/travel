@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>西班牙・葡萄牙・南法・安道爾 30 天 · 2025/9/28–10/28</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+<style>
+:root{
+  --night:#0E1430;
+  --night-2:#161E44;
+  --night-3:#1F2A57;
+  --ivory:#F3ECDD;
+  --ivory-soft:#C8C2B6;
+  --azul:#3D7EA6;
+  --azul-bright:#5BA3C9;
+  --gold:#D4A24E;
+  --gold-soft:#E6C079;
+  --terra:#C2674A;
+  --rose:#B6537E;
+  --green:#4C8B6F;
+  --line:rgba(212,162,78,.26);
+  --line-soft:rgba(243,236,221,.12);
+  /* region accents */
+  --bcn:#D4A24E;
+  --anda:#C2674A;
+  --pt:#4C8B6F;
+  --cat:#3D7EA6;
+  --fr:#B6537E;
+  --mad:#9B6BB0;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background-color:var(--night);
+  background-image:
+    radial-gradient(circle at 12% 10%, rgba(61,126,166,.16), transparent 44%),
+    radial-gradient(circle at 88% 6%, rgba(212,162,78,.13), transparent 46%),
+    radial-gradient(circle at 50% 100%, rgba(194,103,74,.12), transparent 58%);
+  color:var(--ivory);
+  font-family:"Spectral",serif;
+  font-size:18px;
+  line-height:1.72;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+/* azulejo star lattice overlay */
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.05;mix-blend-mode:screen;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cg fill='none' stroke='%23D4A24E' stroke-width='1'%3E%3Cpath d='M30 2l8 12 14 2-8 12 8 12-14 2-8 12-8-12-14-2 8-12-8-12 14-2z'/%3E%3Ccircle cx='30' cy='30' r='6'/%3E%3C/g%3E%3C/svg%3E");
+  background-size:60px 60px;
+}
+.wrap{max-width:1080px;margin:0 auto;padding:0 28px;}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;padding:92px 0 52px;text-align:center;}
+.hero .kicker{
+  font-family:"Cormorant Garamond",serif;font-weight:600;letter-spacing:.46em;text-transform:uppercase;
+  font-size:13px;color:var(--gold);margin:0 0 22px;
+  opacity:0;animation:rise .9s .1s forwards;
+}
+.hero h1{
+  font-family:"Cormorant Garamond",serif;font-weight:600;
+  font-size:clamp(46px,9vw,116px);line-height:.94;margin:0;letter-spacing:-.01em;color:var(--ivory);
+}
+.hero h1 .it{font-style:italic;color:var(--gold-soft);font-weight:500;}
+.hero h1 span{display:block;opacity:0;animation:rise 1s forwards;}
+.hero h1 span:nth-child(1){animation-delay:.18s;}
+.hero h1 span:nth-child(2){animation-delay:.30s;}
+.hero .sub{
+  margin:30px auto 0;max-width:700px;font-size:20px;color:var(--ivory-soft);font-style:italic;
+  opacity:0;animation:rise 1s .5s forwards;
+}
+.hero .meta{
+  margin:34px auto 0;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 30px;
+  font-family:"Cormorant Garamond",serif;font-size:15px;letter-spacing:.08em;text-transform:uppercase;color:var(--ivory-soft);
+  opacity:0;animation:rise 1s .66s forwards;
+}
+.hero .meta b{color:var(--ivory);font-weight:600;}
+.hero .meta span{display:inline-flex;align-items:center;gap:8px;}
+.hero .meta i{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--gold);font-style:normal;}
+.rule{display:flex;align-items:center;gap:18px;margin:46px 0 0;opacity:0;animation:rise 1s .8s forwards;}
+.rule::before,.rule::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent);}
+.rule .star{font-family:"Cormorant Garamond",serif;color:var(--gold);font-size:22px;}
+
+@keyframes rise{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:none;}}
+
+/* ---------- SECTION TITLES ---------- */
+.section-head{display:flex;align-items:baseline;gap:18px;margin:80px 0 26px;}
+.section-head .no{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:36px;color:var(--gold);font-style:italic;line-height:1;}
+.section-head h2{font-family:"Cormorant Garamond",serif;font-weight:600;font-size:clamp(28px,4vw,44px);margin:0;letter-spacing:-.01em;color:var(--ivory);}
+.section-head .en{margin-left:auto;font-family:"Cormorant Garamond",serif;font-style:italic;color:var(--ivory-soft);font-size:16px;letter-spacing:.14em;text-transform:uppercase;}
+
+/* ---------- OVERVIEW MAP ---------- */
+#overview{height:580px;border-radius:5px;border:1px solid var(--line);
+  box-shadow:0 30px 70px -30px rgba(0,0,0,.7), inset 0 0 0 6px rgba(14,20,48,.5);}
+.maplegend{display:flex;flex-wrap:wrap;gap:10px 22px;margin:18px 2px 0;font-family:"Cormorant Garamond",serif;
+  font-size:15px;letter-spacing:.04em;color:var(--ivory-soft);}
+.maplegend span{display:inline-flex;align-items:center;gap:8px;}
+.maplegend i{width:14px;height:14px;border-radius:50%;display:inline-block;border:2px solid rgba(243,236,221,.4);box-shadow:0 1px 4px rgba(0,0,0,.5);}
+.maplegend .dash{width:26px;height:0;border-top:2px dashed var(--ivory-soft);border-radius:0;background:none;box-shadow:none;}
+
+/* dark map tint */
+.leaflet-container{background:#0b1030;font-family:"Spectral",serif;}
+.pin{display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50% 50% 50% 0;
+  transform:rotate(-45deg);border:2px solid rgba(255,255,255,.85);box-shadow:0 4px 12px -2px rgba(0,0,0,.7);}
+.pin b{transform:rotate(45deg);font-family:"Cormorant Garamond",serif;font-weight:700;color:#fff;font-size:14px;}
+.dot{width:13px;height:13px;border-radius:50%;border:2px solid #fff;box-shadow:0 2px 7px rgba(0,0,0,.6);}
+.leaflet-popup-content-wrapper{background:var(--night-2);border-radius:4px;box-shadow:0 16px 40px -14px rgba(0,0,0,.8);border:1px solid var(--line);}
+.leaflet-popup-content{margin:13px 16px;font-family:"Spectral",serif;color:var(--ivory);}
+.leaflet-popup-content .pdate{font-family:"Cormorant Garamond",serif;font-weight:600;color:var(--gold);font-size:13px;letter-spacing:.08em;text-transform:uppercase;}
+.leaflet-popup-content .pname{font-family:"Cormorant Garamond",serif;font-weight:600;font-size:20px;display:block;margin:2px 0 4px;color:var(--ivory);}
+.leaflet-popup-tip{background:var(--night-2);}
+.leaflet-bar a{background:var(--night-2);color:var(--ivory);border-bottom-color:var(--line);}
+.leaflet-bar a:hover{background:var(--night-3);}
+.leaflet-control-attribution{background:rgba(14,20,48,.7)!important;color:var(--ivory-soft)!important;}
+.leaflet-control-attribution a{color:var(--azul-bright)!important;}
+
+/* ---------- TABLE ---------- */
+.tablewrap{border:1px solid var(--line);border-radius:5px;overflow:hidden;background:rgba(22,30,68,.5);
+  box-shadow:0 22px 50px -32px rgba(0,0,0,.8);}
+table{width:100%;border-collapse:collapse;font-size:16px;}
+thead th{font-family:"Cormorant Garamond",serif;font-weight:600;text-transform:uppercase;letter-spacing:.12em;font-size:13px;
+  text-align:left;padding:15px 18px;background:var(--gold);color:var(--night);}
+tbody td{padding:13px 18px;border-top:1px solid var(--line-soft);vertical-align:top;}
+tbody tr:nth-child(even){background:rgba(31,42,87,.4);}
+tbody tr{transition:background .2s;cursor:pointer;}
+tbody tr:hover{background:rgba(212,162,78,.14);}
+tbody tr:focus{outline:2px solid var(--gold);outline-offset:-3px;}
+tbody tr:focus:not(:focus-visible){outline:none;}
+td.date{font-family:"Cormorant Garamond",serif;font-weight:600;white-space:nowrap;color:var(--gold-soft);font-size:17px;}
+td.dow{color:var(--ivory-soft);font-style:italic;white-space:nowrap;}
+td.stay{white-space:nowrap;font-family:"Cormorant Garamond",serif;font-size:15px;}
+td.stay i{width:9px;height:9px;border-radius:50%;display:inline-block;margin-right:7px;vertical-align:middle;}
+.seg-row td{background:var(--night-3)!important;border-top:2px solid var(--gold);}
+.seg-row td{font-family:"Cormorant Garamond",serif;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  font-size:13px;color:var(--gold-soft);padding:11px 18px;}
+
+/* ---------- DAY BLOCKS ---------- */
+.days{position:relative;margin-top:30px;}
+.day{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:start;
+  padding:46px 0;border-top:1px solid var(--line-soft);
+  opacity:0;transform:translateY(30px);transition:opacity .7s,transform .7s;}
+.day.in{opacity:1;transform:none;}
+.day:nth-child(even) .day-map{order:-1;}
+.day-id{font-family:"Cormorant Garamond",serif;line-height:1;}
+.day-id .d-date{font-size:46px;font-weight:600;color:var(--ivory);letter-spacing:-.02em;}
+.day-id .d-date small{font-size:18px;color:var(--ivory-soft);font-style:italic;font-weight:400;margin-left:8px;}
+.day-id .d-dow{display:inline-block;margin-top:4px;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);}
+.day h3{font-family:"Cormorant Garamond",serif;font-weight:600;font-size:27px;margin:10px 0 6px;line-height:1.18;color:var(--ivory);}
+.day .stayline{font-family:"Cormorant Garamond",serif;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--ivory-soft);margin:0 0 16px;}
+.day .stayline i{width:9px;height:9px;border-radius:50%;display:inline-block;margin-right:7px;vertical-align:middle;}
+.day-detail li,.miniroute .c,.card ul li{overflow-wrap:anywhere;}
+.day-detail ul{margin:0;padding-left:0;list-style:none;}
+.day-detail li{position:relative;padding-left:22px;margin:0 0 9px;}
+.day-detail li::before{content:"";position:absolute;left:2px;top:13px;width:7px;height:7px;border:1.5px solid var(--gold);transform:rotate(45deg);}
+.day-detail b{color:var(--gold-soft);font-weight:600;}
+.callout{margin:14px 0;padding:11px 15px;border-radius:4px;font-size:15.5px;line-height:1.62;}
+.callout.warn{background:rgba(194,103,74,.16);border-left:3px solid var(--terra);}
+.callout.tip{background:rgba(212,162,78,.14);border-left:3px solid var(--gold);}
+.callout .lab{font-family:"Cormorant Garamond",serif;font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:11px;display:block;margin-bottom:3px;}
+.callout.warn .lab{color:var(--terra);}
+.callout.tip .lab{color:var(--gold-soft);}
+.day-map{position:sticky;top:24px;}
+.day-map .mini{height:300px;border-radius:5px;border:1px solid var(--line);
+  box-shadow:0 18px 44px -28px rgba(0,0,0,.8),inset 0 0 0 5px rgba(14,20,48,.5);}
+.day-map .cap{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:14px;color:var(--ivory-soft);margin:9px 4px 0;text-align:right;}
+
+/* schedule mini-table inside a day */
+.miniroute{margin:14px 0;border:1px solid var(--line);border-radius:4px;overflow:hidden;font-size:14.5px;}
+.miniroute .r{display:grid;grid-template-columns:64px 1fr;border-top:1px solid var(--line-soft);}
+.miniroute .r:first-child{border-top:none;}
+.miniroute .t{padding:8px 10px;font-family:"Cormorant Garamond",serif;font-weight:600;color:var(--gold-soft);background:rgba(31,42,87,.5);font-size:13px;}
+.miniroute .c{padding:8px 12px;}
+
+/* ---------- BOOKING / NOTES ---------- */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;}
+.card{border:1px solid var(--line);border-radius:5px;padding:22px 24px;background:rgba(22,30,68,.55);
+  box-shadow:0 18px 44px -30px rgba(0,0,0,.8);}
+.card h4{font-family:"Cormorant Garamond",serif;font-weight:600;font-size:20px;margin:0 0 12px;display:flex;align-items:center;gap:10px;color:var(--ivory);}
+.card h4 .n{font-style:italic;color:var(--gold);font-weight:500;}
+.card ol{margin:0;padding-left:20px;}
+.card ol li{margin:0 0 8px;}
+.card ul{margin:0;padding-left:0;list-style:none;}
+.card ul li{position:relative;padding-left:18px;margin:0 0 8px;}
+.card ul li::before{content:"";position:absolute;left:0;top:11px;width:6px;height:6px;background:var(--azul);border-radius:50%;}
+.card b{color:var(--gold-soft);}
+
+/* ---------- DOMESTIC FLIGHTS ---------- */
+.dom-flights{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px;}
+.dom-flight{border:1px solid var(--line);border-radius:5px;background:rgba(22,30,68,.55);overflow:hidden;
+  box-shadow:0 12px 30px -22px rgba(0,0,0,.8);}
+.dom-flight .fhead{padding:10px 16px;background:rgba(31,42,87,.8);display:flex;align-items:baseline;justify-content:space-between;gap:8px;}
+.dom-flight .fhead .dir{font-family:"Cormorant Garamond",serif;font-weight:600;font-size:15px;color:var(--ivory);}
+.dom-flight .fhead .rt{font-family:"Cormorant Garamond",serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);white-space:nowrap;}
+.dom-flight .fbody{padding:14px 16px;}
+.dom-flight .fseg .ep .tm{font-size:22px;}
+.dom-flight .fseg .ep .ap{font-size:12px;}
+.dom-flight .fseg .mid{min-width:64px;}
+@media(max-width:760px){
+  .dom-flights{grid-template-columns:1fr;}
+}
+
+/* ---------- FOOTER ---------- */
+footer{text-align:center;padding:70px 0 60px;margin-top:60px;border-top:1px solid var(--line);}
+footer .star{font-family:"Cormorant Garamond",serif;color:var(--gold);font-size:24px;}
+footer p{font-family:"Cormorant Garamond",serif;font-style:italic;color:var(--ivory-soft);margin:14px 0 0;}
+footer .big{font-family:"Cormorant Garamond",serif;font-weight:600;font-style:normal;color:var(--gold);font-size:32px;letter-spacing:.02em;margin-top:6px;}
+
+/* ---------- FLIGHTS ---------- */
+.fmeta{display:flex;flex-wrap:wrap;gap:9px 22px;margin:0 2px 20px;font-family:"Cormorant Garamond",serif;font-size:15px;color:var(--ivory-soft);}
+.fmeta b{color:var(--ivory);font-weight:600;}
+.flights{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.flight{border:1px solid var(--line);border-radius:5px;background:rgba(22,30,68,.55);
+  box-shadow:0 18px 44px -30px rgba(0,0,0,.8);overflow:hidden;}
+.flight .fhead{display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:13px 20px;background:var(--gold);color:var(--night);}
+.flight .fhead .dir{font-family:"Cormorant Garamond",serif;font-weight:700;font-size:18px;}
+.flight .fhead .rt{font-family:"Cormorant Garamond",serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;opacity:.82;white-space:nowrap;}
+.flight .fbody{padding:18px 20px;}
+.fseg{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;}
+.fseg .ep{display:flex;flex-direction:column;min-width:0;}
+.fseg .ep.to{text-align:right;align-items:flex-end;}
+.fseg .ep .tm{font-family:"Cormorant Garamond",serif;font-weight:600;font-size:26px;line-height:1;color:var(--ivory);}
+.fseg .ep .ap{font-size:13px;color:var(--ivory-soft);margin-top:4px;line-height:1.35;}
+.fseg .ep .dt{font-family:"Cormorant Garamond",serif;font-size:11px;letter-spacing:.06em;color:var(--gold-soft);margin-top:3px;}
+.fseg .mid{display:flex;flex-direction:column;align-items:center;min-width:78px;}
+.fseg .mid .fno{font-family:"Cormorant Garamond",serif;font-weight:600;font-size:12px;color:var(--azul-bright);letter-spacing:.05em;}
+.fseg .mid .pl{width:100%;height:0;border-top:1.5px solid var(--line);margin:7px 0 0;position:relative;}
+.fseg .mid .pl::after{content:"✈";position:absolute;right:-3px;top:-9px;color:var(--gold);font-size:12px;}
+.ftrans{font-size:13px;color:var(--ivory-soft);font-style:italic;text-align:center;padding:9px 6px;margin:11px 0;border-top:1px dashed var(--line);border-bottom:1px dashed var(--line);}
+
+@media(max-width:760px){
+  body{font-size:17px;}
+  .hero{padding:52px 0 32px;}
+  .hero h1{font-size:clamp(34px,11vw,116px);}
+  .flights{grid-template-columns:1fr;}
+  .fhead{flex-wrap:wrap;gap:6px;}
+  .fhead .rt{white-space:normal;}
+  .fseg{gap:8px;}
+  .fseg .mid{min-width:62px;}
+  .fseg .ep .ap{font-size:12px;overflow-wrap:anywhere;}
+  .fseg .ep .tm{font-size:22px;}
+  .day{grid-template-columns:1fr;gap:18px;padding:38px 0;}
+  .day:nth-child(even) .day-map{order:0;}
+  .day-map{position:static;top:auto;}
+  .day-map .cap{text-align:left;}
+  #overview{height:440px;}
+  .section-head{flex-wrap:wrap;}
+  .section-head .no{flex-shrink:0;}
+  .section-head .en{display:none;}
+  .miniroute .r{grid-template-columns:auto 1fr;}
+  .tablewrap{overflow-x:auto;}
+  thead th:nth-child(3),td.summary{display:none;}
+}
+@media print{
+  body{background:#fff;color:#000;font-size:11.5pt;}
+  body::before{display:none;}
+  .hero{padding:18px 0 8px;}
+  .hero .sub,.rule{display:none;}
+  #overview,.day-map,.maplegend{display:none;}
+  .days,.day{display:block;}
+  .day{opacity:1!important;transform:none!important;break-inside:avoid;padding:16px 0;border-top:1px solid #aaa;}
+  .section-head{margin:22px 0 12px;}
+  .section-head h2,.day h3,.day-id .d-date{color:#000;}
+  thead th{background:#222!important;color:#fff!important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .callout,.card,.flight,tr{break-inside:avoid;}
+  .tablewrap,.card,.flight,#overview{box-shadow:none;}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="kicker">Barcelona → Iberia → Andorra · 30 Días</p>
+    <h1><span>Península</span><span class="it">Ibérica</span></h1>
+    <p class="sub">從高第的巴塞羅那到摩爾人的格拉納達，穿越葡萄牙、南法與庇里牛斯山小國——前兩週純旅行，後兩週數位遊牧的三十日環伊比利之旅。</p>
+    <div class="meta">
+      <span><i></i><b>2025 / 9.28 – 10.28</b></span>
+      <span><i></i>中國東方航空 · 巴塞隆納進出</span>
+      <span><i></i>rocking 的旅程</span>
+    </div>
+    <div class="rule"><span class="star">✦</span></div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section>
+    <div class="section-head">
+      <span class="no">I</span>
+      <h2>旅程全圖</h2>
+      <span class="en">The Route</span>
+    </div>
+    <div id="overview"></div>
+    <div class="maplegend" id="legend"></div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <span class="no">II</span>
+      <h2>班機資訊</h2>
+      <span class="en">Flights</span>
+    </div>
+    <p class="fmeta">
+      <span>✈&nbsp; <b>中國東方航空 China Eastern</b> · 經濟艙</span>
+      <span>於 <b>上海浦東 PVG</b> 轉機</span>
+      <span>建議起飛前 <b>3 小時</b>到機場</span>
+    </p>
+    <div class="flights">
+      <div class="flight">
+        <div class="fhead"><span class="dir">去程 · 台北 → 巴塞隆納</span><span class="rt">於上海浦東轉機</span></div>
+        <div class="fbody">
+          <div class="fseg">
+            <div class="ep"><span class="tm">18:40</span><span class="ap">台北 TPE · 桃園</span><span class="dt">9/27</span></div>
+            <div class="mid"><span class="fno">MU5006</span><span class="pl"></span></div>
+            <div class="ep to"><span class="tm">20:40</span><span class="ap">上海浦東 PVG</span><span class="dt">9/27</span></div>
+          </div>
+          <div class="ftrans">上海浦東轉機約 4 小時</div>
+          <div class="fseg">
+            <div class="ep"><span class="tm">00:40</span><span class="ap">上海浦東 PVG</span><span class="dt">9/28</span></div>
+            <div class="mid"><span class="fno">MU249</span><span class="pl"></span></div>
+            <div class="ep to"><span class="tm">08:05</span><span class="ap">巴塞隆納 BCN · El Prat</span><span class="dt">9/28</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="flight">
+        <div class="fhead"><span class="dir">回程 · 巴塞隆納 → 台北</span><span class="rt">於上海浦東轉機</span></div>
+        <div class="fbody">
+          <div class="fseg">
+            <div class="ep"><span class="tm">10:20</span><span class="ap">巴塞隆納 BCN · El Prat</span><span class="dt">10/28</span></div>
+            <div class="mid"><span class="fno">MU250</span><span class="pl"></span></div>
+            <div class="ep to"><span class="tm">05:30</span><span class="ap">上海浦東 PVG</span><span class="dt">10/29</span></div>
+          </div>
+          <div class="ftrans">上海浦東轉機約 3 小時 45 分</div>
+          <div class="fseg">
+            <div class="ep"><span class="tm">09:15</span><span class="ap">上海浦東 PVG</span><span class="dt">10/29</span></div>
+            <div class="mid"><span class="fno">FM801</span><span class="pl"></span></div>
+            <div class="ep to"><span class="tm">11:15</span><span class="ap">台北 TSA · 松山</span><span class="dt">10/29</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="callout warn" style="margin-top:18px"><span class="lab">回程注意</span>回程抵 <b>台北松山機場（TSA）</b>，非桃園，接送安排注意。</div>
+
+    <div class="section-head" style="margin-top:52px;margin-bottom:18px;">
+      <span class="no" style="font-size:26px;">✈</span>
+      <h2 style="font-size:clamp(22px,3vw,32px);">境內航班</h2>
+      <span class="en">Domestic Legs</span>
+    </div>
+    <div class="dom-flights">
+      <div class="dom-flight">
+        <div class="fhead"><span class="dir">BCN → GRX</span><span class="rt">Vueling · VY2016</span></div>
+        <div class="fbody">
+          <div class="fseg">
+            <div class="ep"><span class="tm">20:30</span><span class="ap">巴塞隆納 BCN · El Prat</span><span class="dt">9/29</span></div>
+            <div class="mid"><span class="fno">VY2016</span><span class="pl"></span></div>
+            <div class="ep to"><span class="tm">22:05</span><span class="ap">格拉納達 GRX</span><span class="dt">9/29</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="dom-flight">
+        <div class="fhead"><span class="dir">SVQ → LIS</span><span class="rt">Ryanair · FR3629</span></div>
+        <div class="fbody">
+          <div class="fseg">
+            <div class="ep"><span class="tm">17:35</span><span class="ap">塞維亞 SVQ</span><span class="dt">10/5</span></div>
+            <div class="mid"><span class="fno">FR3629</span><span class="pl"></span></div>
+            <div class="ep to"><span class="tm">17:35</span><span class="ap">里斯本 LIS</span><span class="dt">10/5</span></div>
+          </div>
+          <div class="ftrans">同時刻因跨時區（西班牙 UTC+2 → 葡萄牙 UTC+1），實際飛行約 1 小時</div>
+        </div>
+      </div>
+      <div class="dom-flight">
+        <div class="fhead"><span class="dir">OPO → BCN</span><span class="rt">Ryanair · FR4546</span></div>
+        <div class="fbody">
+          <div class="fseg">
+            <div class="ep"><span class="tm">18:50</span><span class="ap">波多 OPO</span><span class="dt">10/13</span></div>
+            <div class="mid"><span class="fno">FR4546</span><span class="pl"></span></div>
+            <div class="ep to"><span class="tm">21:40</span><span class="ap">巴塞隆納 BCN · El Prat</span><span class="dt">10/13</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <span class="no">III</span>
+      <h2>行程總表</h2>
+      <span class="en">At a Glance</span>
+    </div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>日期</th><th>星期</th><th class="summary">重點</th><th>過夜地</th></tr></thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <span class="no">IV</span>
+      <h2>逐日行程</h2>
+      <span class="en">Day by Day</span>
+    </div>
+    <div class="days" id="days"></div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <span class="no">V</span>
+      <h2>訂票與提醒</h2>
+      <span class="en">Before You Go</span>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <h4><span class="n">①</span>訂票優先序</h4>
+        <ol>
+          <li><b>阿爾罕布拉宮（Alhambra）</b> — 納斯里宮殿限時段、最易售完，數週前上官網搶；票印名字、需帶護照核對（9/30）</li>
+          <li><b>賽維亞王宮（Real Alcázar）</b> — 線上先訂票（10/5）</li>
+          <li><b>佩納宮（Palácio da Pena）</b> — 辛特拉熱點，線上訂時段避人潮（10/7）</li>
+          <li><b>聖家堂（Sagrada Família）</b> — 旺季常售完，訂含登塔時段（9/28）</li>
+          <li><b>巴特羅之家（Casa Batlló）</b>、<b>桂爾宮（Palau Güell）</b> — 線上先訂（10/14、10/17）</li>
+          <li><b>Les Grands Buffet（納博訥）</b> — 極難訂，三天前訂到算超幸運（10/18）</li>
+          <li><b>喬安娜圖書館（Biblioteca Joanina, 科英布拉）</b> — 需訂時段（10/12）</li>
+          <li><b>跨國火車</b>：西 Renfe／AVE、葡 CP、法 SNCF 各自訂，早鳥便宜很多</li>
+          <li><b>安道爾一日團</b>：巴塞羅那出發，確認發團日後下訂（10/26）</li>
+        </ol>
+      </div>
+      <div class="card">
+        <h4><span class="n">②</span>通用提醒</h4>
+        <ul>
+          <li><b>扒手熱區</b>：巴塞羅那、里斯本、馬德里地鐵與市場（10/8 已中招）。背包反背、護照與主卡分開、隨身只帶當日現金與一張卡。</li>
+          <li><b>信用卡被偷處置</b>：立刻掛失補辦、留報案證明（10/8 里斯本經驗）。</li>
+          <li><b>一日遊回程</b>：哥多華、辛特拉、塞哥維亞等近郊末班車較早，回程班次先查好。</li>
+          <li><b>遠端工作段（10/14 起）</b>：景點排週末、近郊一日遊排平日下午／傍晚，平日上午留給工作；住宿選網路穩、有書桌的房型。</li>
+          <li><b>跨國交通</b>：城際段建議先訂早鳥票；法國段（納博訥／卡爾卡頌）以客運＋區間火車銜接。</li>
+          <li><b>教堂服裝</b>：清真寺主教堂、各大教堂普遍要遮肩蓋膝。</li>
+          <li><b>網路與現金</b>：落地前備歐洲 eSIM（訂票 QR、地圖、船班靠網路）；另備少量現金（小鎮櫃台、教堂、市場）。</li>
+          <li><b>鞋</b>：阿爾罕布拉、隆達、托雷多等大量步行＋爬坡，穿好走的鞋。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="star">✦</span>
+    <p>三十日，三國一隅，一段環伊比利半島的長旅。</p>
+    <p class="big">¡Buen Viaje!</p>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script>
+/* ---------- DATA ---------- */
+const COL={bcn:'#D4A24E',anda:'#C2674A',pt:'#4C8B6F',cat:'#3D7EA6',fr:'#B6537E',mad:'#9B6BB0'};
+
+// Overview nodes (city level)
+const NODES=[
+  {n:1, name:'巴塞羅那（Barcelona）', coord:[41.3851,2.1734],  c:COL.bcn,  info:'9/28–9/29 · 聖家堂、舊城、海灘（後段遠端工作基地）'},
+  {n:2, name:'格拉納達（Granada）',    coord:[37.1773,-3.5986], c:COL.anda, info:'9/29–10/1 · 阿爾罕布拉宮、聖尼古拉斯觀景台'},
+  {n:3, name:'賽維亞（Sevilla）',      coord:[37.3891,-5.9845], c:COL.anda, info:'10/1–10/5 · 王宮、主座教堂、都市陽傘'},
+  {n:'·',name:'哥多華（Córdoba）',     coord:[37.8882,-4.7794], c:COL.anda, info:'10/2 一日 · 清真寺主教堂、羅馬橋', spur:[37.3891,-5.9845]},
+  {n:'·',name:'隆達（Ronda）',         coord:[36.7461,-5.1611], c:COL.anda, info:'10/3–10/4 · 新橋、鬥牛場', spur:[37.3891,-5.9845]},
+  {n:4, name:'里斯本（Lisbon）',       coord:[38.7223,-9.1393], c:COL.pt,   info:'10/5–10/10 · 聖喬治城堡、貝倫區，近郊四連發'},
+  {n:'·',name:'辛特拉（Sintra）',      coord:[38.7979,-9.3907], c:COL.pt,   info:'10/7 一日 · 佩納宮、羅卡角', spur:[38.7223,-9.1393]},
+  {n:5, name:'波多（Porto）',          coord:[41.1579,-8.6291], c:COL.pt,   info:'10/10–10/13 · 路易一世大橋、藍瓷教堂'},
+  {n:'·',name:'科英布拉（Coimbra）',   coord:[40.2056,-8.4196], c:COL.pt,   info:'10/12 一日 · 大學城、喬安娜圖書館', spur:[41.1579,-8.6291]},
+  {n:6, name:'納博訥（Narbonne）',     coord:[43.1840,3.0036],  c:COL.fr,   info:'10/18–10/20 · 南法、Les Grands Buffet'},
+  {n:'·',name:'卡爾卡頌（Carcassonne）',coord:[43.2130,2.3491], c:COL.fr,   info:'10/19 一日 · 中世紀雙重城牆要塞', spur:[43.1840,3.0036]},
+  {n:7, name:'馬德里（Madrid）',       coord:[40.4168,-3.7038], c:COL.mad,  info:'10/20–10/25 · 王宮、近郊古城四連發'},
+  {n:'·',name:'托雷多（Toledo）',      coord:[39.8628,-4.0273], c:COL.mad,  info:'10/24 一日 · 主座教堂、聖馬丁橋', spur:[40.4168,-3.7038]},
+  {n:8, name:'安道爾（Andorra）',      coord:[42.5063,1.5218],  c:COL.cat,  info:'10/26 一日團 · 庇里牛斯山小國', spur:[41.3851,2.1734]},
+  {n:9, name:'托薩德馬爾（Tossa de Mar）',coord:[41.7203,2.9319],c:COL.cat, info:'10/27 · 布拉瓦海岸中世紀海邊城牆', spur:[41.3851,2.1734]},
+];
+// main route legs (great loop). BCN->Granada->Sevilla->Lisbon->Porto->(back BCN)->Narbonne->Madrid->BCN
+const ROUTE=[
+  [41.3851,2.1734],[37.1773,-3.5986],[37.3891,-5.9845],[38.7223,-9.1393],[41.1579,-8.6291],
+  [41.3851,2.1734],[43.1840,3.0036],[41.3851,2.1734],[40.4168,-3.7038],[41.3851,2.1734]
+];
+
+const DAYS=[
+ {date:'9/28',dow:'週日',stay:'巴塞羅那',color:COL.bcn,seg:'第一部分 · 純旅行',
+  title:'抵巴塞羅那（Barcelona）· 聖家堂與海灘',
+  center:[41.395,2.18],zoom:13,
+  markers:[['聖家堂（Sagrada Família）',[41.4036,2.1744]],['凱旋門（Arc de Triomf）',[41.3911,2.1806]],['城堡公園（Parc de la Ciutadella）',[41.3886,2.1870]],['巴塞羅那塔海灘（Barceloneta Beach）',[41.3784,2.1925]],['水族館（L’Aquàrium）',[41.3768,2.1846]]],
+  cap:'聖家堂（Sagrada Família）→ 海灘（Barceloneta）',
+  detail:`<ul>
+   <li><b>08:05</b> 抵巴塞羅那普拉特機場（Barcelona El Prat, BCN），提行李、進市區放行李。</li>
+   <li>排隊吃 <b>Joncake</b>（人氣早午餐）。</li>
+   <li><b>聖家堂（Sagrada Família）</b>：蓋了 100 多年還沒完工的高第教堂；旺季票常售完，<b>線上先訂時段</b>。</li>
+   <li>凱旋門（Arc de Triomf）→ 城堡公園（Parc de la Ciutadella）散步。</li>
+   <li>巴塞羅那塔海灘（Barceloneta Beach）→ 巴塞羅那水族館（L'Aquàrium de Barcelona）。</li>
+  </ul>
+  <div class="callout tip"><span class="lab">提醒</span>長途飛行＋轉機後第一天，行程偏輕鬆，晚上早點休息。</div>`},
+
+ {date:'9/29',dow:'週一',stay:'格拉納達',color:COL.bcn,
+  title:'巴塞羅那（Barcelona）舊城 → 飛格拉納達（Granada）',
+  center:[41.382,2.176],zoom:14,
+  markers:[['主座教堂（Catedral de Barcelona）',[41.3839,2.1762]],['波蓋利亞市場（Mercat de la Boqueria）',[41.3819,2.1716]],['哥德區（Barri Gòtic）',[41.3833,2.1777]]],
+  cap:'巴塞羅那（Barcelona）哥德區 → 格拉納達（Granada）',
+  detail:`<ul>
+   <li>主座教堂（Catedral de Barcelona，哥德區 Barri Gòtic）。</li>
+   <li>波蓋利亞市場（Mercat de la Boqueria）覓食。</li>
+   <li>哥德區（Barri Gòtic）巷弄散步。</li>
+   <li>傍晚搭飛機飛 <b>格拉納達（Granada）</b>。</li>
+   <li>夜遊格拉納達主座教堂（Catedral de Granada）周邊。</li>
+  </ul>`},
+
+ {date:'9/30',dow:'週二',stay:'格拉納達',color:COL.anda,
+  title:'格拉納達（Granada）· 阿爾罕布拉宮（Alhambra）',
+  center:[37.176,-3.589],zoom:14,
+  markers:[['聖尼古拉斯觀景台（Mirador de San Nicolás）',[37.1807,-3.5923]],['阿爾罕布拉宮（Alhambra）',[37.1761,-3.5881]],['阿爾拜辛區（Albaicín）',[37.1823,-3.5934]]],
+  cap:'聖尼古拉斯觀景台 → 阿爾罕布拉宮（Alhambra）',
+  detail:`<ul>
+   <li><b>聖尼古拉斯觀景台（Mirador de San Nicolás）</b>：阿爾拜辛區（Albaicín）最佳角度看阿爾罕布拉宮＋內華達山脈（Sierra Nevada）。</li>
+   <li><b>阿爾罕布拉宮（Alhambra）</b>：摩爾王朝宮殿群——納斯里宮殿（Nasrid Palaces）＋軒尼洛里菲花園（Generalife）。</li>
+  </ul>
+  <div class="callout warn"><span class="lab">必搶票</span>務必提前數週上官網搶票，尤其納斯里宮殿（Nasrid Palaces）是限時段入場、最易售完；門票會印名字、需帶護照核對。</div>`},
+
+ {date:'10/1',dow:'週三',stay:'賽維亞',color:COL.anda,
+  title:'格拉納達（Granada）→ 賽維亞（Sevilla）',
+  center:[37.386,-5.99],zoom:14,
+  markers:[['薩利納斯之家（Casa de Salinas）',[37.3853,-5.9905]],['聖十字區（Barrio de Santa Cruz）',[37.3853,-5.9890]]],
+  cap:'格拉納達（Granada）→ 賽維亞（Sevilla）聖十字區',
+  detail:`<ul>
+   <li>上午從格拉納達（Granada）搭客運／火車去 <b>賽維亞（Sevilla）</b>，約 3 小時。</li>
+   <li><b>薩利納斯之家（Casa de Salinas）</b>：賽維亞貴族宅邸，安達盧西亞庭院＋羅馬馬賽克。</li>
+   <li><b>聖十字區（Barrio de Santa Cruz）</b>：舊猶太區白牆窄巷散步。</li>
+  </ul>`},
+
+ {date:'10/2',dow:'週四',stay:'賽維亞',color:COL.anda,
+  title:'哥多華（Córdoba）一日',
+  center:[37.878,-4.78],zoom:14,
+  markers:[['比亞納宮（Palacio de Viana）',[37.8901,-4.7730]],['清真寺主教堂（Mezquita-Catedral）',[37.8790,-4.7794]],['羅馬橋（Puente Romano）',[37.8765,-4.7777]]],
+  cap:'哥多華（Córdoba）· 賽維亞當天往返',
+  detail:`<div class="callout tip"><span class="lab">一日往返</span>當天往返，住賽維亞（Sevilla）。賽維亞 ↔ 哥多華高鐵約 45 分。</div>
+  <ul>
+   <li>早班火車去 <b>哥多華（Córdoba）</b>。</li>
+   <li><b>比亞納宮（Palacio de Viana）</b>：12 座庭院的「庭院博物館」。</li>
+   <li><b>清真寺主教堂（Mezquita-Catedral de Córdoba）</b>：紅白拱柱林立，清真寺中蓋了一座主教堂，哥多華必看。</li>
+   <li>羅馬橋（Puente Romano）＋瓜達幾維河（Guadalquivir）。</li>
+   <li>傍晚回賽維亞（Sevilla）。</li>
+  </ul>`},
+
+ {date:'10/3',dow:'週五',stay:'隆達',color:COL.anda,
+  title:'賽維亞（Sevilla）→ 隆達（Ronda）',
+  center:[36.742,-5.165],zoom:15,
+  markers:[['鬥牛場（Plaza de Toros）',[36.7438,-5.1672]],['新橋（Puente Nuevo）',[36.7415,-5.1659]],['舊橋（Puente Viejo）',[36.7437,-5.1635]],['摩爾王之家（Casa del Rey Moro）',[36.7430,-5.1628]]],
+  cap:'隆達（Ronda）· 新橋與鬥牛場',
+  detail:`<ul>
+   <li>從賽維亞（Sevilla）搭客運去 <b>隆達（Ronda）</b>，約 2 小時；晚上直接住隆達。</li>
+   <li><b>鬥牛場（Plaza de Toros de Ronda）</b>：西班牙最古老鬥牛場之一。</li>
+   <li><b>新橋（Puente Nuevo）</b>：跨埃爾塔霍峽谷（El Tajo），「天空之城」原型場景之一。</li>
+   <li>舊橋（Puente Viejo）。</li>
+   <li>摩爾王之家（Casa del Rey Moro）＋礦坑階梯。</li>
+  </ul>`},
+
+ {date:'10/4',dow:'週六',stay:'賽維亞',color:COL.anda,
+  title:'隆達（Ronda）晨景 → 回賽維亞（Sevilla）',
+  center:[37.386,-5.992],zoom:15,
+  markers:[['新橋（Puente Nuevo）',[36.7415,-5.1659]],['賽維亞主座教堂（Catedral de Sevilla）',[37.3859,-5.9932]],['希拉達塔（La Giralda）',[37.3863,-5.9926]]],
+  cap:'隆達（Ronda）晨景 → 賽維亞主座教堂',
+  detail:`<ul>
+   <li>早上再去看一次 <b>新橋（Puente Nuevo）</b>（晨光人少最美）。</li>
+   <li>中午搭客運回賽維亞（Sevilla）。</li>
+   <li><b>賽維亞主座教堂（Catedral de Sevilla）</b>：世界最大哥德式教堂之一，哥倫布之墓、希拉達塔（La Giralda）登頂。</li>
+  </ul>`},
+
+ {date:'10/5',dow:'週日',stay:'里斯本',color:COL.pt,
+  title:'賽維亞（Sevilla）→ 飛里斯本（Lisbon）',
+  center:[37.392,-5.992],zoom:15,
+  markers:[['都市陽傘（Setas de Sevilla）',[37.3934,-5.9920]],['賽維亞王宮（Real Alcázar）',[37.3830,-5.9905]],['商業廣場（Praça do Comércio）',[38.7077,-9.1366]]],
+  cap:'賽維亞（Sevilla）→ 里斯本（Lisbon）',
+  detail:`<ul>
+   <li><b>都市陽傘（Setas de Sevilla / Metropol Parasol）</b>：世界最大木構造，頂樓觀景。</li>
+   <li><b>賽維亞王宮（Real Alcázar de Sevilla）</b>：穆德哈爾式宮殿與花園，《冰與火之歌》多恩（Dorne）場景；<b>建議線上先訂票</b>。</li>
+   <li>傍晚搭飛機飛 <b>里斯本（Lisbon）</b>。</li>
+   <li>夜遊里斯本（商業廣場 Praça do Comércio 一帶）。</li>
+  </ul>`},
+
+ {date:'10/6',dow:'週一',stay:'里斯本',color:COL.pt,
+  title:'里斯本（Lisbon）· 阿爾法瑪老城',
+  center:[38.711,-9.133],zoom:14,
+  markers:[['聖喬治城堡（Castelo de São Jorge）',[38.7139,-9.1335]],['里斯本主座教堂（Sé de Lisboa）',[38.7099,-9.1330]],['卡爾莫修道院（Convento do Carmo）',[38.7119,-9.1404]],['阿爾法瑪（Alfama）',[38.7128,-9.1289]]],
+  cap:'聖喬治城堡 → 阿爾法瑪（Alfama）老城',
+  detail:`<ul>
+   <li><b>聖喬治城堡（Castelo de São Jorge）</b>：俯瞰里斯本紅瓦屋頂與特茹河（Rio Tejo）。</li>
+   <li>里斯本主座教堂（Sé de Lisboa）。</li>
+   <li><b>卡爾莫修道院（Convento do Carmo）</b>：1755 大地震後保留的無頂哥德廢墟。</li>
+  </ul>
+  <div class="callout tip"><span class="lab">順遊</span>阿爾法瑪（Alfama）老城巷弄＋28 號電車（Tram 28）。</div>`},
+
+ {date:'10/7',dow:'週二',stay:'里斯本',color:COL.pt,
+  title:'辛特拉（Sintra）＋羅卡角（Cabo da Roca）一日',
+  center:[38.79,-9.42],zoom:11,
+  markers:[['佩納宮（Palácio da Pena）',[38.7876,-9.3905]],['辛特拉（Sintra）',[38.7979,-9.3907]],['羅卡角（Cabo da Roca）',[38.7805,-9.4989]]],
+  cap:'辛特拉（Sintra）→ 羅卡角（Cabo da Roca）',
+  detail:`<div class="callout tip"><span class="lab">一日往返</span>當天往返，住里斯本（Lisbon）。Rossio 站搭火車去辛特拉，約 40 分。</div>
+  <ul>
+   <li><b>佩納宮（Palácio Nacional da Pena）</b>：色彩繽紛的山頂浪漫主義城堡；<b>線上先訂時段、避開人潮</b>。</li>
+   <li>搭公車去 <b>羅卡角（Cabo da Roca）</b>：歐亞大陸最西端！懸崖燈塔看大西洋。</li>
+   <li>傍晚回里斯本（Lisbon）。</li>
+  </ul>
+  <div class="callout warn"><span class="lab">提醒</span>辛特拉內部公車（434／403）旺季排隊兇，早點出門。</div>`},
+
+ {date:'10/8',dow:'週三',stay:'里斯本',color:COL.pt,
+  title:'歐比多斯（Óbidos）一日',
+  center:[39.36,-9.157],zoom:15,
+  markers:[['歐比多斯老城（Vila de Óbidos）',[39.3606,-9.1572]],['城牆（Muralhas de Óbidos）',[39.3621,-9.1585]]],
+  cap:'歐比多斯（Óbidos）· 城牆環城',
+  detail:`<div class="callout tip"><span class="lab">一日往返</span>當天往返，住里斯本（Lisbon）。搭客運約 1 小時。</div>
+  <ul>
+   <li>老城區（Vila de Óbidos）：白牆藍黃邊小鎮，喝一杯櫻桃酒（Ginja，裝在巧克力杯裡）。</li>
+   <li>走城牆（Muralhas de Óbidos）繞城鎮一圈。</li>
+   <li>傍晚回里斯本（Lisbon）。</li>
+  </ul>
+  <div class="callout warn"><span class="lab">本日意外</span>於里斯本警察局報案：<b>信用卡被偷</b>。里斯本扒手多，顧好隨身財物；事後記得掛失補辦、留報案證明。</div>`},
+
+ {date:'10/9',dow:'週四',stay:'里斯本',color:COL.pt,
+  title:'埃武拉（Évora）一日',
+  center:[38.572,-7.908],zoom:15,
+  markers:[['人骨教堂（Capela dos Ossos）',[38.5694,-7.9085]],['埃武拉主座教堂（Sé de Évora）',[38.5723,-7.9072]],['羅馬神廟（Templo Romano）',[38.5729,-7.9075]]],
+  cap:'埃武拉（Évora）· 人骨教堂與羅馬神廟',
+  detail:`<div class="callout tip"><span class="lab">一日往返</span>當天往返，住里斯本（Lisbon）。搭火車／客運約 1.5 小時。</div>
+  <ul>
+   <li><b>人骨教堂（Capela dos Ossos）</b>：以數千具人骨砌成牆壁，門口刻「我們的骨頭在此等你」。</li>
+   <li>埃武拉主座教堂（Sé de Évora）。</li>
+   <li><b>羅馬神廟（Templo Romano de Évora）</b>：又稱黛安娜神廟（Templo de Diana），葡萄牙保存最好的羅馬遺跡之一。</li>
+   <li>傍晚回里斯本（Lisbon）。</li>
+  </ul>`},
+
+ {date:'10/10',dow:'週五',stay:'波多',color:COL.pt,
+  title:'地獄之口＋卡斯凱什（Cascais）→ 夜車去波多（Porto）',
+  center:[38.69,-9.42],zoom:11,
+  markers:[['地獄之口（Boca do Inferno）',[38.6920,-9.4290]],['卡斯凱什（Cascais）',[38.6979,-9.4215]],['傑羅尼莫斯修道院（Mosteiro dos Jerónimos）',[38.6979,-9.2065]],['蛋塔創始店（Pastéis de Belém）',[38.6975,-9.2032]]],
+  cap:'卡斯凱什（Cascais）→ 貝倫區（Belém）→ 波多（Porto）',
+  detail:`<ul>
+   <li><b>地獄之口（Boca do Inferno）</b>：卡斯凱什近郊海蝕洞，大浪拍岸。</li>
+   <li><b>卡斯凱什（Cascais）</b>：海濱度假小鎮逛街。</li>
+   <li>回里斯本（Lisbon）貝倫區（Belém）：
+     <ul style="margin-top:6px">
+       <li><b>傑羅尼莫斯修道院（Mosteiro dos Jerónimos）</b>：曼努埃爾式建築巔峰，達伽馬（Vasco da Gama）長眠於此。</li>
+       <li><b>葡式蛋塔創始店（Pastéis de Belém）</b>：1837 年至今的蛋塔老店。</li>
+     </ul>
+   </li>
+   <li>傍晚搭客運去 <b>波多（Porto）</b>。</li>
+  </ul>`},
+
+ {date:'10/11',dow:'週六',stay:'波多',color:COL.pt,
+  title:'波多（Porto）· 藍瓷與雙層鐵橋',
+  center:[41.146,-8.611],zoom:15,
+  markers:[['博良市場（Mercado do Bolhão）',[41.1493,-8.6075]],['靈魂教堂（Capela das Almas）',[41.1486,-8.6064]],['青花瓷教堂（Igreja de Santo Ildefonso）',[41.1466,-8.6065]],['主教宮（Paço Episcopal）',[41.1431,-8.6113]],['路易一世大橋（Ponte Luís I）',[41.1399,-8.6093]]],
+  cap:'藍瓷教堂 → 路易一世大橋（Ponte Luís I）',
+  detail:`<ul>
+   <li><b>博良市場（Mercado do Bolhão）</b>：波多傳統市場。</li>
+   <li><b>靈魂教堂（Capela das Almas）</b>：外牆鋪滿藍白瓷磚（azulejo）。</li>
+   <li><b>青花瓷教堂（Igreja de Santo Ildefonso）</b>：另一座經典藍瓷立面教堂。</li>
+   <li>主教宮（Paço Episcopal do Porto）。</li>
+   <li><b>路易一世大橋（Ponte Luís I）</b>：雙層鐵橋，下層走人、上層走地鐵；對岸加亞新城（Vila Nova de Gaia）波特酒窖區看日落。</li>
+  </ul>`},
+
+ {date:'10/12',dow:'週日',stay:'波多',color:COL.pt,
+  title:'科英布拉（Coimbra）一日',
+  center:[40.207,-8.426],zoom:15,
+  markers:[['科英布拉大學（Universidade de Coimbra）',[40.2076,-8.4256]],['喬安娜圖書館（Biblioteca Joanina）',[40.2078,-8.4259]],['行宮（Paço das Escolas）',[40.2074,-8.4258]]],
+  cap:'科英布拉（Coimbra）· 大學城',
+  detail:`<div class="callout tip"><span class="lab">一日往返</span>當天往返，住波多（Porto）。搭火車約 1 小時。</div>
+  <ul>
+   <li><b>科英布拉大學城（Universidade de Coimbra）</b>：歐洲最古老大學之一（UNESCO）。
+     <ul style="margin-top:6px">
+       <li>喬安娜圖書館（Biblioteca Joanina，巴洛克金箔圖書館，需訂時段）</li>
+       <li>行宮／皇家宮殿（Paço das Escolas）</li>
+       <li>科學館（Museu da Ciência）</li>
+     </ul>
+   </li>
+   <li>滑板車（scooter）citywalk 穿梭山城。</li>
+   <li>公園耍廢放空。</li>
+  </ul>`},
+
+ {date:'10/13',dow:'週一',stay:'巴塞羅那',color:COL.pt,
+  title:'波多（Porto）收尾 → 飛回巴塞羅那（Barcelona）',
+  center:[41.146,-8.614],zoom:15,
+  markers:[['牧師塔（Torre dos Clérigos）',[41.1456,-8.6145]],['卡爾莫教堂（Igreja do Carmo）',[41.1474,-8.6157]]],
+  cap:'牧師塔（Torre dos Clérigos）→ 飛巴塞羅那',
+  detail:`<ul>
+   <li><b>牧師塔（Torre dos Clérigos）</b>：波多地標鐘樓，登頂俯瞰全城。</li>
+   <li><b>卡爾莫教堂（Igreja do Carmo）</b>：側牆大幅藍瓷壁畫。</li>
+   <li>傍晚搭飛機 <b>飛回巴塞羅那（Barcelona）</b>，開始遠端工作。</li>
+  </ul>
+  <div class="callout tip"><span class="lab">階段轉換</span>純旅行段結束，接下來兩週改為「一邊遠端工作一邊玩」的數位遊牧模式。</div>`},
+
+ {date:'10/14',dow:'週二',stay:'巴塞羅那',color:COL.bcn,seg:'第二部分 · 數位遊牧',
+  title:'巴塞羅那（Barcelona）· 巴特羅之家',
+  center:[41.391,2.165],zoom:15,
+  markers:[['巴特羅之家（Casa Batlló）',[41.3917,2.1650]]],
+  cap:'巴特羅之家（Casa Batlló）',
+  detail:`<ul>
+   <li><b>巴特羅之家（Casa Batlló）</b>：高第「龍之屋」，骨頭陽台與彩色立面；<b>線上先訂票</b>。</li>
+  </ul>
+  <div class="callout tip"><span class="lab">基地</span>本段以巴塞羅那（Barcelona）為基地，近郊一日遊排平日下午／傍晚，平日上午留給遠端工作。</div>`},
+
+ {date:'10/15',dow:'週三',stay:'巴塞羅那',color:COL.cat,
+  title:'赫羅納（Girona）一日',
+  center:[41.987,2.825],zoom:15,
+  markers:[['赫羅納主座教堂（Catedral de Girona）',[41.9874,2.8261]],['古城牆（Passeig de la Muralla）',[41.9856,2.8280]],['紅色鐵橋（Pont de les Peixateries Velles）',[41.9846,2.8237]]],
+  cap:'赫羅納（Girona）· 主座教堂與紅鐵橋',
+  detail:`<div class="callout tip"><span class="lab">一日往返</span>當天往返，住巴塞羅那（Barcelona）。搭高鐵約 40 分。</div>
+  <ul>
+   <li><b>赫羅納主座教堂（Catedral de Girona）</b>：歐洲最寬哥德中殿，《冰與火之歌》君臨城（King's Landing）取景點。</li>
+   <li>走古城牆（Passeig de la Muralla）。</li>
+   <li><b>紅色鐵橋（Pont de les Peixateries Velles）</b>：艾菲爾（Gustave Eiffel）設計，俯瞰奧尼亞爾河（Riu Onyar）彩色房子。</li>
+  </ul>`},
+
+ {date:'10/16',dow:'週四',stay:'巴塞羅那',color:COL.cat,
+  title:'塔拉戈納（Tarragona）一日',
+  center:[41.116,1.258],zoom:15,
+  markers:[['羅馬圓形劇場（Amfiteatre Romà）',[41.1148,1.2588]],['古羅馬賽車場（Circ Romà）',[41.1167,1.2570]],['塔拉戈納主座教堂（Catedral de Tarragona）',[41.1190,1.2585]]],
+  cap:'塔拉戈納（Tarragona）· 羅馬遺跡',
+  detail:`<div class="callout tip"><span class="lab">一日往返</span>當天往返，住巴塞羅那（Barcelona）。搭火車約 1 小時。</div>
+  <ul>
+   <li><b>羅馬圓形劇場（Amfiteatre Romà）</b>：海邊的羅馬競技場遺址。</li>
+   <li><b>古羅馬賽車場（Circ Romà）</b>：古羅馬戰車競速場。</li>
+   <li>塔拉戈納主座教堂（Catedral de Tarragona）。</li>
+  </ul>
+  <div class="callout tip"><span class="lab">提醒</span>塔拉戈納羅馬遺跡群為 UNESCO 世界遺產。</div>`},
+
+ {date:'10/17',dow:'週五',stay:'巴塞羅那',color:COL.bcn,
+  title:'巴塞羅那（Barcelona）· 桂爾宮與市場',
+  center:[41.378,2.174],zoom:15,
+  markers:[['桂爾宮（Palau Güell）',[41.3793,2.1745]],['聖卡塔林納市場（Mercat de Santa Caterina）',[41.3873,2.1769]]],
+  cap:'桂爾宮（Palau Güell）→ 聖卡塔林納市場',
+  detail:`<ul>
+   <li><b>桂爾宮（Palau Güell）</b>：高第早期作品，屋頂煙囪藝術。</li>
+   <li><b>聖卡塔林納市場（Mercat de Santa Caterina）</b>：波浪彩色屋頂市場，比波蓋利亞少觀光客。</li>
+  </ul>`},
+
+ {date:'10/18',dow:'週六',stay:'納博訥',color:COL.fr,
+  title:'巴塞羅那（Barcelona）→ 納博訥（Narbonne）',
+  center:[43.184,3.003],zoom:15,
+  markers:[['納博訥主座教堂（Cathédrale Saint-Just）',[43.1843,3.0040]],['Les Grands Buffet',[43.1790,3.0010]]],
+  cap:'納博訥（Narbonne，南法）',
+  detail:`<ul>
+   <li>搭客運到 <b>納博訥（Narbonne，南法）</b>。</li>
+   <li>納博訥主座教堂（Cathédrale Saint-Just-et-Saint-Pasteur）。</li>
+   <li><b>Les Grands Buffet</b>：fine dining 自助餐、號稱全法國營收最高的餐廳；<b>極難訂，三天前訂到位算超級幸運</b>。</li>
+   <li>晚上住納博訥（Narbonne）。</li>
+  </ul>`},
+
+ {date:'10/19',dow:'週日',stay:'納博訥',color:COL.fr,
+  title:'卡爾卡頌（Carcassonne）一日',
+  center:[43.206,2.364],zoom:15,
+  markers:[['卡爾卡頌城堡（Château Comtal）',[43.2061,2.3636]],['中世紀城堡之城（Cité de Carcassonne）',[43.2065,2.3640]],['南運河（Canal du Midi）',[43.2150,2.3530]]],
+  cap:'卡爾卡頌（Carcassonne）· 中世紀城堡之城',
+  detail:`<div class="callout tip"><span class="lab">一日往返</span>當天往返，住納博訥（Narbonne）。搭火車約 30 分。</div>
+  <ul>
+   <li>南運河（Canal du Midi）遊船耍廢。</li>
+   <li><b>卡爾卡頌城堡（Château Comtal）</b>＋<b>中世紀城堡之城（Cité de Carcassonne）</b>：歐洲最大保存完整的中世紀雙重城牆要塞（UNESCO）。</li>
+   <li>傍晚回納博訥（Narbonne）。</li>
+  </ul>`},
+
+ {date:'10/20',dow:'週一',stay:'馬德里',color:COL.fr,
+  title:'納博訥（Narbonne）→ 馬德里（Madrid）',
+  center:[41.9,0.5],zoom:6,
+  markers:[['納博訥（Narbonne）',[43.1840,3.0036]],['巴塞羅那（Barcelona）',[41.3851,2.1734]],['馬德里（Madrid）',[40.4168,-3.7038]]],
+  cap:'納博訥 → 巴塞羅那 → 馬德里（高鐵）',
+  detail:`<ul>
+   <li>從法國搭客運回 <b>巴塞羅那（Barcelona）</b>。</li>
+   <li>再轉高鐵（AVE）去 <b>馬德里（Madrid）</b>，約 2.5–3 小時。</li>
+  </ul>`},
+
+ {date:'10/21',dow:'週二',stay:'馬德里',color:COL.mad,
+  title:'馬德里（Madrid）· 緩衝耍廢日',
+  center:[40.417,-3.703],zoom:14,
+  markers:[['太陽門（Puerta del Sol）',[40.4169,-3.7033]],['主廣場（Plaza Mayor）',[40.4155,-3.7074]],['麗池公園（Parque del Retiro）',[40.4153,-3.6845]]],
+  cap:'馬德里（Madrid）· 市區耍廢',
+  detail:`<ul>
+   <li>跟摩洛哥妹子吃早午餐（brunch）。</li>
+   <li>市區耍廢／緩衝日：太陽門（Puerta del Sol）、主廣場（Plaza Mayor）、麗池公園（Parque del Retiro）可順遊。</li>
+  </ul>`},
+
+ {date:'10/22',dow:'週三',stay:'馬德里',color:COL.mad,
+  title:'塞哥維亞（Segovia）一日',
+  center:[40.948,-4.118],zoom:15,
+  markers:[['塞哥維亞主座教堂（Catedral de Segovia）',[40.9503,-4.1255]],['塞哥維亞城堡（Alcázar de Segovia）',[40.9525,-4.1320]],['羅馬水道橋（Acueducto de Segovia）',[40.9479,-4.1180]]],
+  cap:'塞哥維亞（Segovia）· 水道橋與城堡',
+  detail:`<div class="callout tip"><span class="lab">一日往返</span>當天往返，住馬德里（Madrid）。搭高鐵約 30 分。</div>
+  <ul>
+   <li>塞哥維亞主座教堂（Catedral de Segovia）。</li>
+   <li><b>塞哥維亞城堡（Alcázar de Segovia）</b>：迪士尼白雪公主城堡原型之一。</li>
+   <li><b>羅馬水道橋（Acueducto de Segovia）</b>：近 2000 年無砂漿堆砌的羅馬工程奇蹟。</li>
+  </ul>
+  <div class="callout tip"><span class="lab">在地名物</span>烤乳豬（cochinillo asado）。</div>`},
+
+ {date:'10/23',dow:'週四',stay:'馬德里',color:COL.mad,
+  title:'埃斯科里亞爾（El Escorial）一日',
+  center:[40.589,-4.148],zoom:15,
+  markers:[['埃斯科里亞爾修道院（Monasterio de El Escorial）',[40.5893,-4.1474]]],
+  cap:'聖羅倫索－埃斯科里亞爾（San Lorenzo de El Escorial）',
+  detail:`<div class="callout tip"><span class="lab">一日往返</span>當天往返，住馬德里（Madrid）。搭近郊火車（Cercanías）約 1 小時。</div>
+  <ul>
+   <li><b>埃斯科里亞爾修道院（Monasterio de El Escorial）</b>：號稱「世界第八奇蹟」，集修道院、宮殿、皇家陵墓、教堂、圖書館、學校於一身的龐大建築群（UNESCO）。</li>
+  </ul>`},
+
+ {date:'10/24',dow:'週五',stay:'馬德里',color:COL.mad,
+  title:'托雷多（Toledo）一日',
+  center:[39.857,-4.024],zoom:14,
+  markers:[['托雷多主座教堂（Catedral de Toledo）',[39.8571,-4.0241]],['托雷多城堡（Alcázar de Toledo）',[39.8585,-4.0203]],['聖馬丁橋（Puente de San Martín）',[39.8569,-4.0337]]],
+  cap:'托雷多（Toledo）· 三教交融之城',
+  detail:`<div class="callout tip"><span class="lab">一日往返</span>當天往返，住馬德里（Madrid）。搭高鐵約 30 分。</div>
+  <ul>
+   <li><b>托雷多主座教堂（Catedral de Toledo）</b>：西班牙首席天主教堂，哥德式巔峰。</li>
+   <li>托雷多城堡（Alcázar de Toledo）。</li>
+   <li><b>聖馬丁橋（Puente de San Martín）</b>：塔霍河（Tajo）上的中世紀石橋，可看古城全景（對岸觀景台 Mirador del Valle）。</li>
+  </ul>
+  <div class="callout tip"><span class="lab">提醒</span>托雷多舊城整座為 UNESCO 世界遺產，三教（基督教、伊斯蘭、猶太）交融之城。</div>`},
+
+ {date:'10/25',dow:'週六',stay:'巴塞羅那',color:COL.mad,
+  title:'馬德里（Madrid）收尾 → 回巴塞羅那（Barcelona）',
+  center:[40.418,-3.71],zoom:14,
+  markers:[['皇家植物園（Real Jardín Botánico）',[40.4110,-3.6914]],['馬德里王宮（Palacio Real）',[40.4180,-3.7144]]],
+  cap:'馬德里王宮（Palacio Real）→ 回巴塞羅那',
+  detail:`<ul>
+   <li><b>皇家植物園（Real Jardín Botánico）</b>。</li>
+   <li><b>馬德里王宮（Palacio Real de Madrid）</b>：歐洲最大皇宮之一。</li>
+   <li>搭高鐵回 <b>巴塞羅那（Barcelona）</b>。</li>
+  </ul>`},
+
+ {date:'10/26',dow:'週日',stay:'巴塞羅那',color:COL.cat,
+  title:'安道爾（Andorra）一日遊',
+  center:[42.55,1.6],zoom:9,
+  markers:[['阿克斯萊泰爾姆（Ax-les-Thermes）',[42.7191,1.8378]],['佩松山谷觀景台（Mirador del Circ de Pessons）',[42.5360,1.7080]],['老安道爾（Andorra la Vella）',[42.5063,1.5218]]],
+  cap:'安道爾（Andorra）· 庇里牛斯山小國',
+  detail:`<div class="callout tip"><span class="lab">一日團</span>參加巴塞羅那（Barcelona）出發的安道爾一日遊團，當天往返。安道爾：人口約 8 萬的庇里牛斯山小國（西、法之間）。</div>
+  <ul>
+   <li><b>阿克斯萊泰爾姆（Ax-les-Thermes）</b>：法國邊境溫泉小鎮。</li>
+   <li><b>佩松山谷觀景台（Mirador del Circ de Pessons）</b>：高山湖群冰斗景觀。</li>
+   <li>安道爾首都 <b>老安道爾（Andorra la Vella）</b> citywalk（免稅購物天堂）。</li>
+   <li>傍晚回巴塞羅那（Barcelona）。</li>
+  </ul>`},
+
+ {date:'10/27',dow:'週一',stay:'巴塞羅那',color:COL.cat,
+  title:'托薩德馬爾（Tossa de Mar）· 海邊城牆',
+  center:[41.72,2.932],zoom:15,
+  markers:[['城牆（Vila Vella）',[41.7188,2.9318]],['海灘（Platja Gran）',[41.7203,2.9330]]],
+  cap:'托薩德馬爾（Tossa de Mar）· 布拉瓦海岸',
+  detail:`<ul>
+   <li>搭客運去 <b>托薩德馬爾（Tossa de Mar）</b>（布拉瓦海岸 Costa Brava）。</li>
+   <li><b>城牆（Vila Vella）</b>：地中海岸唯一保存完整的中世紀海邊城牆。</li>
+   <li>去小紅書推薦的機位拍照。</li>
+   <li>海灘（Platja Gran）放空，為旅程收尾。</li>
+  </ul>`},
+
+ {date:'10/28',dow:'週二',stay:'— 離程',color:COL.bcn,
+  title:'巴塞羅那（Barcelona）→ 回台北',
+  center:[41.3,2.08],zoom:11,
+  markers:[['巴塞羅那普拉特機場（BCN）',[41.2974,2.0833]]],
+  cap:'巴塞羅那普拉特機場（BCN）→ 台北',
+  detail:`<ul>
+   <li>整理行李，前往巴塞羅那普拉特機場（BCN）。</li>
+   <li><b>10:20</b> 班機起飛（於上海浦東轉機），建議起飛前 3 小時抵達機場。</li>
+  </ul>
+  <div class="callout warn"><span class="lab">回程注意</span>回程抵 <b>台北松山機場（TSA）</b>，非桃園，接送注意。</div>`},
+];
+
+/* ---------- ICON HELPERS ---------- */
+function pinIcon(n,c){
+  return L.divIcon({className:'',html:`<div class="pin" style="background:${c}"><b>${n}</b></div>`,iconSize:[30,30],iconAnchor:[15,28],popupAnchor:[0,-26]});
+}
+function dotIcon(c){
+  return L.divIcon({className:'',html:`<div class="dot" style="background:${c}"></div>`,iconSize:[13,13],iconAnchor:[7,7],popupAnchor:[0,-6]});
+}
+
+/* ---------- TOUCH DETECTION ---------- */
+const isTouch=window.matchMedia('(hover: none), (pointer: coarse)').matches;
+
+/* ---------- OVERVIEW MAP ---------- */
+const ov=L.map('overview',{scrollWheelZoom:false,zoomControl:true}).setView([40.5,-3.5],5);
+L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{
+  attribution:'&copy; OpenStreetMap, &copy; CARTO',subdomains:'abcd',maxZoom:19}).addTo(ov);
+L.polyline(ROUTE,{color:'#D4A24E',weight:2.4,opacity:.8}).addTo(ov);
+NODES.forEach(nd=>{
+  if(nd.spur){L.polyline([nd.spur,nd.coord],{color:'#C8C2B6',weight:1.6,opacity:.6,dashArray:'5,7'}).addTo(ov);}
+  L.marker(nd.coord,{icon:pinIcon(nd.n,nd.c)}).addTo(ov)
+    .bindPopup(`<span class="pname">${nd.name}</span><span style="color:#C8C2B6;font-size:14px">${nd.info}</span>`);
+});
+ov.fitBounds(L.latLngBounds(NODES.map(n=>n.coord)).pad(.12));
+
+/* legend */
+const legendData=[['巴塞羅那・加泰隆尼亞',COL.bcn],['安達盧西亞（南西）',COL.anda],['葡萄牙',COL.pt],['加泰近郊・海岸',COL.cat],['南法',COL.fr],['馬德里圈',COL.mad]];
+document.getElementById('legend').innerHTML=
+  legendData.map(([t,c])=>`<span><i style="background:${c}"></i>${t}</span>`).join('')+
+  '<span><span class="dash"></span>一日遊／往返支線</span>';
+
+/* ---------- TABLE ---------- */
+let lastSeg=null;
+document.getElementById('tbody').innerHTML=DAYS.map((d,i)=>{
+  let segRow='';
+  if(d.seg&&d.seg!==lastSeg){segRow=`<tr class="seg-row"><td colspan="4">${d.seg}</td></tr>`;lastSeg=d.seg;}
+  return segRow+`
+  <tr data-go="${i}" tabindex="0" role="button" aria-label="跳到 ${d.date} ${d.title}">
+    <td class="date">${d.date}</td>
+    <td class="dow">${d.dow}</td>
+    <td class="summary">${d.title}</td>
+    <td class="stay"><i style="background:${d.color}"></i>${d.stay}</td>
+  </tr>`;}).join('');
+
+/* ---------- DAY BLOCKS ---------- */
+document.getElementById('days').innerHTML=DAYS.map((d,i)=>`
+  <article class="day" id="day${i}">
+    <div class="day-text">
+      <div class="day-id"><span class="d-date">${d.date}<small>${d.dow}</small></span><br><span class="d-dow">Día ${i+1}</span></div>
+      <h3>${d.title}</h3>
+      <p class="stayline"><i style="background:${d.color}"></i>過夜：${d.stay}</p>
+      <div class="day-detail">${d.detail}</div>
+    </div>
+    <div class="day-map">
+      <div class="mini" id="mini${i}"></div>
+      <p class="cap">${d.cap}</p>
+    </div>
+  </article>`).join('');
+
+/* table row -> scroll to day */
+document.querySelectorAll('tr[data-go]').forEach(tr=>{
+  const go=()=>document.getElementById('day'+tr.dataset.go).scrollIntoView({behavior:'smooth',block:'center'});
+  tr.addEventListener('click',go);
+  tr.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();go();}});
+});
+
+/* ---------- MINI MAPS ---------- */
+const miniMaps=[];
+DAYS.forEach((d,i)=>{
+  const m=L.map('mini'+i,{scrollWheelZoom:false,zoomControl:false,attributionControl:false,dragging:!isTouch,touchZoom:!isTouch,doubleClickZoom:!isTouch}).setView(d.center,d.zoom);
+  miniMaps[i]=m;
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{subdomains:'abcd',maxZoom:19}).addTo(m);
+  const pts=[];
+  d.markers.forEach(([name,coord])=>{
+    L.marker(coord,{icon:dotIcon(d.color)}).addTo(m).bindPopup(`<b style="font-family:'Cormorant Garamond',serif;color:#F3ECDD">${name}</b>`);
+    pts.push(coord);
+  });
+  if(pts.length>1){
+    L.polyline(pts,{color:d.color,weight:2,opacity:.6,dashArray:'4,6'}).addTo(m);
+    m.fitBounds(L.latLngBounds(pts).pad(.35));
+  }
+});
+
+/* ---------- REVEAL ON SCROLL ---------- */
+const io=new IntersectionObserver(es=>{es.forEach(e=>{
+  if(e.isIntersecting){
+    e.target.classList.add('in');
+    const idx=+e.target.id.replace('day','');
+    if(miniMaps[idx])miniMaps[idx].invalidateSize();
+    io.unobserve(e.target);
+  }
+});},{threshold:0,rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.day').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
